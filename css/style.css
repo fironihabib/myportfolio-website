@@ -1139,9 +1139,12 @@ html {
   }
 
   .download-cv-btn {
-    margin-top: 1rem !important;
+    margin: 1rem auto 0 auto !important;
     padding: 0.7rem 1.2rem !important;
     font-size: 0.85rem !important;
+    display: block !important;
+    width: fit-content !important;
+    text-align: center !important;
   }
 }
 
@@ -1770,6 +1773,14 @@ html {
 
   .skill-item i {
     font-size: 11px !important;
+  }
+
+  /* Fix character image positioning */
+  .character-image {
+    width: 100% !important;
+    height: 100% !important;
+    object-fit: cover !important;
+    border-radius: 50% !important;
   }
 }
 
@@ -2503,6 +2514,19 @@ html {
   .gallery-nav {
     display: none !important;
   }
+
+  /* Ensure project cards are properly centered */
+  .project-card {
+    margin: 0.3rem auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+  }
+
+  .project-image {
+    width: 100% !important;
+    object-fit: cover !important;
+    border-radius: 8px !important;
+  }
 }
 
 @media (max-width: 767px) {
@@ -2989,13 +3013,27 @@ html {
 /* Contact Page Responsive Design */
 /* ===== TABLET CONTACT PAGE (768px - 1024px) - FORCE OVERRIDE ===== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  /* Contact page structure handled by main tablet CSS above */
+  /* Ensure contact page is visible and properly structured */
+  .contact-page.active {
+    display: flex !important;
+    flex-direction: column !important;
+    width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+    background: #000000 !important;
+  }
 
   .contact-content {
     padding: 20px 15px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     min-height: auto !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
   }
 
   .contact-title {
@@ -3049,6 +3087,27 @@ html {
     flex-direction: column !important;
     gap: 0.8rem !important;
     margin-top: 1.5rem !important;
+  }
+
+  /* Ensure all contact views are visible on tablet */
+  .contact-default-view,
+  .contact-form-view,
+  .contact-thank-you-view {
+    width: 100% !important;
+    max-width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .contact-default-view {
+    display: block !important;
+  }
+
+  .contact-form-view {
+    display: none !important;
+  }
+
+  .contact-thank-you-view {
+    display: none !important;
   }
 }
 
