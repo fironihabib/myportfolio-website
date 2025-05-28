@@ -1041,8 +1041,9 @@ function handleLanguageDropdownClick(e) {
     // Toggle current dropdown
     dropdown.classList.toggle("active");
 
-    // Mobile handling
-    if (window.innerWidth <= 480) {
+    // Mobile handling - only for very small screens and not on contact page
+    const isContactPage = dropdown.closest(".contact-page");
+    if (window.innerWidth <= 480 && !isContactPage) {
       if (dropdown.classList.contains("active")) {
         document.body.style.overflow = "hidden";
       } else {
@@ -1078,8 +1079,11 @@ function handleOutsideClick(e) {
       dropdown.classList.remove("active");
     });
 
-    // Restore body scroll on mobile
-    if (window.innerWidth <= 480) {
+    // Restore body scroll on mobile - but not on contact page
+    const isContactPage =
+      document.querySelector(".contact-page.active") ||
+      document.querySelector('.contact-page[style*="flex"]');
+    if (window.innerWidth <= 480 && !isContactPage) {
       document.body.style.overflow = "";
     }
   }
@@ -1101,8 +1105,11 @@ function selectLanguage(lang, flagSrc, langName) {
     dd.classList.remove("active");
   });
 
-  // Restore body scroll on mobile
-  if (window.innerWidth <= 480) {
+  // Restore body scroll on mobile - but not on contact page
+  const isContactPage =
+    document.querySelector(".contact-page.active") ||
+    document.querySelector('.contact-page[style*="flex"]');
+  if (window.innerWidth <= 480 && !isContactPage) {
     document.body.style.overflow = "";
   }
 
