@@ -986,12 +986,10 @@ document.addEventListener("DOMContentLoaded", function () {
   // Initialize language dropdowns for all pages
   initializeLanguageDropdowns();
 
-  // Language dropdowns are now initialized directly in initializeLanguageDropdowns()
-
-  // Test all dropdowns immediately
+  // Test all dropdowns after a short delay
   setTimeout(() => {
     testAllDropdownsOnLoad();
-  }, 1000);
+  }, 500);
 });
 
 function initializeLanguageDropdowns() {
@@ -999,6 +997,11 @@ function initializeLanguageDropdowns() {
   const allDropdowns = document.querySelectorAll(".language-dropdown");
 
   console.log(`🌍 Found ${allDropdowns.length} language dropdowns`);
+
+  // Remove any existing event listeners first
+  allDropdowns.forEach((dropdown) => {
+    dropdown.removeEventListener("click", handleDropdownClick);
+  });
 
   // Add event listeners to each dropdown
   allDropdowns.forEach((dropdown, index) => {
@@ -1013,12 +1016,8 @@ function initializeLanguageDropdowns() {
     });
 
     if (selectedLanguage) {
-      // Remove existing event listeners
-      selectedLanguage.replaceWith(selectedLanguage.cloneNode(true));
-      const newSelectedLanguage = dropdown.querySelector(".selected-language");
-
-      // Add click event listener
-      newSelectedLanguage.addEventListener("click", function (e) {
+      // Add click event listener to selected language
+      selectedLanguage.addEventListener("click", function (e) {
         e.stopPropagation();
         e.preventDefault();
 
@@ -1091,6 +1090,11 @@ function initializeLanguageDropdowns() {
 
   // Load saved language preference
   loadSavedLanguage();
+}
+
+// Helper function for dropdown click handling
+function handleDropdownClick(e) {
+  e.stopPropagation();
 }
 
 function updateAllLanguageDropdowns(flagSrc, langCode) {
