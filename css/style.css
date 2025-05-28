@@ -971,18 +971,62 @@ html {
 /* ===== RESPONSIVE DESIGN ===== */
 /* Tablet Styles (769px - 1024px) */
 @media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet Base Styles */
+  body {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    min-height: 100vh;
+    width: 100%;
+  }
+
+  html {
+    overflow-x: hidden;
+    overflow-y: auto;
+    height: auto;
+    width: 100%;
+  }
+
+  /* Fix all page sections for tablet */
+  .hero-section,
+  .home-page,
+  .about-page,
+  .work-page,
+  .contact-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    width: 100%;
+  }
+
+  /* Ensure proper scrolling */
+  .home-page.active,
+  .about-page.active,
+  .work-page.active,
+  .contact-page.active {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+  }
+
   /* Tablet Navigation */
   .nav-container {
     padding: 0 1rem;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
   }
 
   .main-nav {
-    gap: 1.5rem;
+    gap: 1.2rem;
+    flex-wrap: nowrap;
   }
 
   .nav-link {
-    font-size: 0.9rem;
-    padding: 0.5rem 0.8rem;
+    font-size: 0.85rem;
+    padding: 0.4rem 0.6rem;
+    white-space: nowrap;
   }
 
   /* Tablet Language Dropdown */
@@ -1015,15 +1059,49 @@ html {
     margin-bottom: 2.5rem;
   }
 
+  /* Tablet Headers */
+  .home-header,
+  .about-header,
+  .work-header,
+  .contact-header {
+    padding: 1rem 1.5rem;
+    width: 100%;
+    box-sizing: border-box;
+    position: relative;
+    z-index: 10;
+  }
+
   /* Tablet Home Page */
   .home-content {
-    padding: 2rem 3rem;
-    gap: 4rem;
+    padding: 2rem 2rem;
+    gap: 3rem;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    max-width: 100%;
+  }
+
+  .home-left {
+    flex: 1;
+    max-width: 50%;
+    text-align: left;
+  }
+
+  .home-right {
+    flex: 1;
+    max-width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .home-profile-image {
-    width: 300px;
-    height: 300px;
+    width: 280px;
+    height: 280px;
+  }
+
+  .name {
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
   }
 }
 
