@@ -3150,6 +3150,16 @@ html {
     z-index: 10 !important;
   }
 
+  /* Hide navbar when contact form is displayed on tablet */
+  .contact-page .contact-header {
+    display: none !important;
+  }
+
+  /* Show navbar only when default contact view is active on tablet */
+  .contact-page:has(.contact-default-view[style*="flex"]) .contact-header {
+    display: block !important;
+  }
+
   .contact-content {
     flex: 1 !important;
     padding: 20px 1rem 1rem 1rem !important;
@@ -3273,15 +3283,21 @@ html {
   }
 
   .country-code-dropdown {
-    width: 100px !important;
-    font-size: 0.8rem !important;
-    padding: 0.8rem 0.5rem !important;
+    width: 120px !important;
+    min-width: 120px !important;
+    max-width: 120px !important;
+    font-size: 0.9rem !important;
+    padding: 0.8rem 0.4rem !important;
     border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
     background: transparent !important;
     color: #ffffff !important;
     border: none !important;
     outline: none !important;
     font-family: "DM Sans", sans-serif !important;
+    flex-shrink: 0 !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
   }
 
   .phone-input-wrapper input {
@@ -3655,6 +3671,26 @@ html {
     z-index: 1000 !important;
   }
 
+  /* Hide navbar when contact form is displayed */
+  .contact-page .contact-header {
+    display: none !important;
+  }
+
+  /* Show navbar only when default contact view is active */
+  .contact-page:has(.contact-default-view[style*="flex"]) .contact-header {
+    display: block !important;
+  }
+
+  /* Alternative approach - hide header when form view is visible */
+  .contact-form-view[style*="flex"] {
+    padding-top: 0 !important;
+  }
+
+  .contact-form-view[style*="flex"] + * .contact-header,
+  .contact-page:has(.contact-form-view[style*="flex"]) .contact-header {
+    display: none !important;
+  }
+
   .contact-content {
     flex: 1 !important;
     padding: 10px 1rem 1rem 1rem !important;
@@ -3823,6 +3859,65 @@ html {
   .form-group textarea {
     min-height: 100px !important;
     resize: vertical !important;
+  }
+
+  /* Mobile phone input wrapper fixes */
+  .phone-input-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 8px !important;
+    box-sizing: border-box !important;
+    transition: all 0.3s ease !important;
+    min-height: 48px !important;
+  }
+
+  .phone-input-wrapper:focus-within {
+    border-color: #00f050 !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    box-shadow: 0 0 0 2px rgba(0, 240, 80, 0.2) !important;
+  }
+
+  .country-code-dropdown {
+    width: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    font-size: 14px !important;
+    padding: 0.7rem 0.3rem !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    border: none !important;
+    outline: none !important;
+    font-family: "DM Sans", sans-serif !important;
+    flex-shrink: 0 !important;
+    height: auto !important;
+    line-height: 1.2 !important;
+    vertical-align: middle !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+  }
+
+  .phone-input-wrapper input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0.7rem 0.5rem !important;
+    color: #ffffff !important;
+    outline: none !important;
+    font-size: 16px !important;
+    font-family: "DM Sans", sans-serif !important;
+    min-height: auto !important;
+    box-shadow: none !important;
+  }
+
+  .phone-input-wrapper input:focus {
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
   }
 
   .submit-btn,
