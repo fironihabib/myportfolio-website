@@ -1414,6 +1414,13 @@ document.addEventListener("DOMContentLoaded", function () {
           case "contact":
             if (contactPage) {
               contactPage.style.display = "flex";
+              contactPage.style.position = "fixed";
+              contactPage.style.top = "0";
+              contactPage.style.left = "0";
+              contactPage.style.width = "100%";
+              contactPage.style.height = "100vh";
+              contactPage.style.zIndex = "1000";
+              contactPage.style.background = "#000000";
               updateActiveNavLink(contactPage, "contact");
               // Contact page should not scroll
               document.body.style.overflow = "hidden";

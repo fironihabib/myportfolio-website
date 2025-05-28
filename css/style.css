@@ -203,27 +203,50 @@ html {
 }
 
 .sparkle-1 {
-  top: 20%;
-  left: 15%;
+  top: 15%;
+  left: 10%;
   animation-delay: 0s;
 }
 
 .sparkle-2 {
-  top: 30%;
-  right: 20%;
+  top: 25%;
+  right: 25%;
   animation-delay: 1s;
 }
 
 .sparkle-3 {
-  bottom: 25%;
-  left: 25%;
+  bottom: 30%;
+  left: 20%;
   animation-delay: 2s;
 }
 
 .sparkle-4 {
-  bottom: 35%;
-  right: 15%;
+  bottom: 20%;
+  right: 10%;
   animation-delay: 1.5s;
+}
+
+/* Tablet sparkle positioning */
+@media (min-width: 768px) and (max-width: 1024px) {
+  .sparkle-1 {
+    top: 10% !important;
+    left: 5% !important;
+  }
+
+  .sparkle-2 {
+    top: 20% !important;
+    right: 30% !important;
+  }
+
+  .sparkle-3 {
+    bottom: 35% !important;
+    left: 15% !important;
+  }
+
+  .sparkle-4 {
+    bottom: 15% !important;
+    right: 5% !important;
+  }
 }
 
 @keyframes sparkleFloat {
@@ -2488,16 +2511,17 @@ html {
   .gallery-track {
     justify-content: center !important;
     flex-wrap: wrap !important;
-    gap: 1.5rem !important;
+    gap: 1rem !important;
     width: 100% !important;
-    padding: 0 1rem !important;
+    padding: 0 0.5rem !important;
+    max-width: 100% !important;
   }
 
   .project-card {
-    width: 300px !important;
-    height: 340px !important;
-    padding: 15px !important;
-    margin: 0 !important;
+    width: 280px !important;
+    height: 320px !important;
+    padding: 12px !important;
+    margin: 0.5rem !important;
     box-sizing: border-box !important;
     flex: 0 0 auto !important;
   }
@@ -3040,9 +3064,16 @@ html {
   .contact-page {
     background: #000000 !important;
     color: white !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100vh !important;
+    z-index: 1000 !important;
   }
 
-  .contact-page.active {
+  /* Contact page when displayed via style.display = "flex" */
+  .contact-page[style*="flex"] {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
@@ -3050,7 +3081,10 @@ html {
     overflow-y: auto !important;
     overflow-x: hidden !important;
     background: #000000 !important;
-    position: relative !important;
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    z-index: 1000 !important;
   }
 
   .contact-header {
