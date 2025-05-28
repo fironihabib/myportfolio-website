@@ -360,7 +360,7 @@ window.showContactDefault = function () {
   const thankYouView = document.querySelector(".contact-thank-you-view");
 
   if (defaultView && formView && thankYouView) {
-    defaultView.style.display = "block";
+    defaultView.style.display = "flex";
     formView.style.display = "none";
     thankYouView.style.display = "none";
   }
