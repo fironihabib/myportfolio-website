@@ -778,8 +778,8 @@ html {
 .about-text-section {
   flex: 1;
   max-width: 600px;
-  overflow-y: auto;
-  max-height: calc(100vh - 200px);
+  overflow-y: visible;
+  max-height: none;
 }
 
 .about-description {
@@ -973,11 +973,12 @@ html {
   /* Tablet Language Dropdown Fix */
   .language-dropdown.active .language-options {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 250px;
-    max-width: 80vw;
+    top: 70px;
+    right: 15px;
+    left: auto;
+    width: 220px;
+    max-width: calc(100vw - 30px);
+    transform: translateY(0);
     z-index: 999999;
     box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
     border: 1px solid rgba(0, 240, 80, 0.2);
@@ -1237,6 +1238,19 @@ html {
 
   .language-selector {
     order: -1;
+    position: relative;
+  }
+
+  /* Mobile specific dropdown positioning */
+  .language-dropdown.active .language-options {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: auto;
+    width: 180px;
+    margin-top: 0.5rem;
+    transform: translateY(0);
+    z-index: 999999;
   }
 
   .home-header,
@@ -2731,29 +2745,14 @@ html {
   }
 
   /* Mobile Language Dropdown Fix */
-  .language-dropdown {
-    position: static;
-  }
-
-  .language-dropdown .language-options {
-    position: fixed;
-    top: auto;
-    right: 10px;
-    left: 10px;
-    width: calc(100% - 20px);
-    max-width: 300px;
-    margin: 0 auto;
-    transform: translateY(-10px);
-    z-index: 999999;
-  }
-
   .language-dropdown.active .language-options {
     position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 280px;
-    max-width: 90vw;
+    top: 80px;
+    right: 10px;
+    left: auto;
+    width: 200px;
+    max-width: calc(100vw - 20px);
+    transform: translateY(0);
     z-index: 999999;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
     border: 2px solid rgba(0, 240, 80, 0.3);
