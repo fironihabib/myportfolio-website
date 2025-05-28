@@ -37,6 +37,15 @@ document.addEventListener("DOMContentLoaded", function () {
               "opacity 0.8s ease, transform 0.8s ease";
             heroSection.style.opacity = "1";
             heroSection.style.transform = "translateY(0)";
+
+            // Start typewriter effect after hero section is visible
+            setTimeout(() => {
+              const typewriterText = document.getElementById("typewriter-text");
+              if (typewriterText) {
+                const initialText = "Welcome To My Portfolio!";
+                updateTypewriterText(initialText);
+              }
+            }, 500); // Start typewriter 500ms after hero section appears
           }, 50);
         }
       }, 800); // Wait for fade out animation
@@ -1231,18 +1240,8 @@ function updateTypewriterText(newText) {
   typeWriter();
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  const typewriterText = document.getElementById("typewriter-text");
-  if (typewriterText) {
-    // Welcome screen always shows in English
-    const initialText = "Welcome To My Portfolio!";
-
-    // Start typewriter effect after a short delay
-    setTimeout(() => {
-      updateTypewriterText(initialText);
-    }, 1000);
-  }
-});
+// Typewriter effect is now triggered from the page loading screen functionality
+// to ensure proper timing with hero section visibility
 
 // ===== CLICK HERE BUTTON NAVIGATION WITH SLIDE TRANSITION =====
 document.addEventListener("DOMContentLoaded", function () {
