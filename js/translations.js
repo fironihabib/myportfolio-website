@@ -84,8 +84,8 @@ const translations = {
       contact: "Əlaqə",
       // Mobile short versions
       homeMobile: "Əsas",
-      aboutMobile: "Haqqım",
-      workMobile: "İşlər",
+      aboutMobile: "Haqqımda",
+      workMobile: "İşlərim",
       contactMobile: "Əlaqə",
     },
 
@@ -160,8 +160,8 @@ const translations = {
       contact: "İletişim",
       // Mobile short versions
       homeMobile: "Ana",
-      aboutMobile: "Hakkım",
-      workMobile: "Proje",
+      aboutMobile: "Hakkımda",
+      workMobile: "Projelerim",
       contactMobile: "İletişim",
     },
 
@@ -403,7 +403,7 @@ function updateNavigation() {
       text === "Обо мне" ||
       text === "About" ||
       text === "Haqqım" ||
-      text === "Hakkım" // Mobile versions
+      text === "Hakkım" // Old mobile versions (for backward compatibility)
     ) {
       link.textContent = isMobile
         ? translate("nav.aboutMobile")
@@ -416,7 +416,7 @@ function updateNavigation() {
       text === "Работы" ||
       text === "İşlər" ||
       text === "Çalışma" ||
-      text === "Proje" // Mobile versions
+      text === "Proje" // Old mobile versions (for backward compatibility)
     ) {
       link.textContent = isMobile
         ? translate("nav.workMobile")
