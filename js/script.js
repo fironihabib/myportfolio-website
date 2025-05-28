@@ -1421,6 +1421,20 @@ document.addEventListener("DOMContentLoaded", function () {
               contactPage.style.height = "100vh";
               contactPage.style.zIndex = "1000";
               contactPage.style.background = "#000000";
+
+              // Show default contact view
+              const defaultView = contactPage.querySelector(
+                ".contact-default-view"
+              );
+              const formView = contactPage.querySelector(".contact-form-view");
+              const thankYouView = contactPage.querySelector(
+                ".contact-thank-you-view"
+              );
+
+              if (defaultView) defaultView.style.display = "flex";
+              if (formView) formView.style.display = "none";
+              if (thankYouView) thankYouView.style.display = "none";
+
               updateActiveNavLink(contactPage, "contact");
               // Contact page should not scroll
               document.body.style.overflow = "hidden";
@@ -1650,6 +1664,15 @@ function showContactPage() {
       aboutPage.classList.remove("active");
       if (workPage) workPage.classList.remove("active");
       contactPage.style.display = "flex";
+
+      // Show default contact view
+      const defaultView = contactPage.querySelector(".contact-default-view");
+      const formView = contactPage.querySelector(".contact-form-view");
+      const thankYouView = contactPage.querySelector(".contact-thank-you-view");
+
+      if (defaultView) defaultView.style.display = "flex";
+      if (formView) formView.style.display = "none";
+      if (thankYouView) thankYouView.style.display = "none";
 
       // Prevent scrolling on contact page
       document.body.style.overflow = "hidden";

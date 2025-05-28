@@ -3307,7 +3307,7 @@ html {
     text-align: center !important;
   }
 
-  .contact-default-view {
+  .contact-default-view[style*="flex"] {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
@@ -3319,6 +3319,10 @@ html {
     max-width: 500px !important;
     margin: 0 auto !important;
     width: 100% !important;
+  }
+
+  .contact-default-view {
+    display: none !important;
   }
 
   .contact-form-view {
