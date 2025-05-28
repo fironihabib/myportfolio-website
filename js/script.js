@@ -1526,6 +1526,9 @@ document.addEventListener("DOMContentLoaded", function () {
     } else if (screenWidth <= 768) {
       cardWidth = 320;
       cardGap = 16; // 1rem = 16px
+    } else if (screenWidth <= 1024) {
+      cardWidth = 360;
+      cardGap = 24; // 1.5rem = 24px (tablet)
     } else if (screenWidth <= 1200) {
       cardWidth = 340;
       cardGap = 16; // 1rem = 16px

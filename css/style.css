@@ -969,8 +969,66 @@ html {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
+/* Tablet Styles (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  /* Tablet Navigation */
+  .nav-container {
+    padding: 0 1rem;
+  }
+
+  .main-nav {
+    gap: 1.5rem;
+  }
+
+  .nav-link {
+    font-size: 0.9rem;
+    padding: 0.5rem 0.8rem;
+  }
+
+  /* Tablet Language Dropdown */
+  .language-dropdown.active .language-options {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    left: auto;
+    width: 200px;
+    transform: translateY(0);
+    z-index: 999999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 240, 80, 0.2);
+  }
+
+  /* Tablet Hero Section */
+  .profile-elements-container {
+    padding: 2rem 1.5rem;
+    min-height: 80vh;
+  }
+
+  .profile-image-wrapper {
+    width: min(450px, 80vw);
+    height: min(450px, 80vw);
+    padding: 35px;
+  }
+
+  .welcome-text {
+    font-size: clamp(1.4rem, 4vw, 2rem);
+    margin-bottom: 2.5rem;
+  }
+
+  /* Tablet Home Page */
+  .home-content {
+    padding: 2rem 3rem;
+    gap: 4rem;
+  }
+
+  .home-profile-image {
+    width: 300px;
+    height: 300px;
+  }
+}
+
 @media (max-width: 768px) {
-  /* Tablet Language Dropdown Fix */
+  /* Mobile Language Dropdown Fix */
   .language-dropdown.active .language-options {
     position: fixed;
     top: 15px;
@@ -1526,6 +1584,53 @@ html {
 
   .skill-item i {
     font-size: 13px;
+  }
+}
+
+/* Tablet About Page (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .about-me-content {
+    padding: 30px 20px 50px 20px;
+  }
+
+  .about-title {
+    font-size: 3rem;
+    margin-bottom: 25px;
+  }
+
+  .about-main {
+    gap: 25px;
+    margin-top: 0;
+  }
+
+  .character-background {
+    width: 320px;
+    height: 320px;
+  }
+
+  .about-text-section {
+    max-width: 650px;
+    padding: 0 15px;
+  }
+
+  .about-description p {
+    font-size: 16px;
+    line-height: 1.7;
+    margin-bottom: 18px;
+  }
+
+  .skills-container {
+    height: 55px;
+  }
+
+  .skill-item {
+    font-size: 13px;
+    padding: 10px 15px;
+    gap: 6px;
+  }
+
+  .skill-item i {
+    font-size: 14px;
   }
 }
 
@@ -2187,6 +2292,52 @@ html {
   }
 }
 
+/* Tablet Work Page (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .work-content {
+    padding: 1rem 2rem 1.5rem 2rem;
+  }
+
+  .work-title {
+    font-size: clamp(3rem, 8vw, 4rem);
+    margin-bottom: 1rem;
+  }
+
+  .work-subtitle {
+    font-size: 1.2rem;
+    margin-bottom: 2rem;
+    padding: 0 1rem;
+  }
+
+  .portfolio-gallery {
+    gap: 1.5rem;
+  }
+
+  .project-card {
+    width: 360px;
+    height: 380px;
+    padding: 20px;
+  }
+
+  .project-image {
+    height: 170px;
+  }
+
+  .project-title {
+    font-size: 20px;
+    margin: 15px 0 12px 0;
+  }
+
+  .project-technologies span {
+    font-size: 11px;
+    padding: 4px 10px;
+  }
+
+  .gallery-container {
+    max-width: 800px;
+  }
+}
+
 @media (max-width: 768px) {
   .work-content {
     padding: 0.5rem 1rem 1rem 1rem;
@@ -2669,6 +2820,59 @@ html {
 }
 
 /* Contact Page Responsive Design */
+/* Tablet Contact Page (769px - 1024px) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .contact-content {
+    padding: 50px 30px;
+  }
+
+  .contact-title {
+    font-size: 3.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .contact-subtitle {
+    font-size: 1.3rem;
+    margin-bottom: 30px;
+    padding: 0 2rem;
+  }
+
+  .contact-character-container {
+    width: 380px;
+    height: 380px;
+  }
+
+  .get-in-touch-btn {
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  .get-in-touch-section {
+    margin: 2rem 0 2.5rem 0;
+  }
+
+  .contact-form {
+    max-width: 600px;
+    padding: 2rem;
+  }
+
+  .form-group {
+    margin-bottom: 2rem;
+  }
+
+  .form-group input,
+  .form-group textarea {
+    font-size: 16px;
+    padding: 1rem;
+  }
+
+  .submit-btn,
+  .back-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+  }
+}
+
 @media (max-width: 1024px) {
   .contact-character-container {
     width: 350px;
