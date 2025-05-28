@@ -973,7 +973,7 @@ html {
   /* Tablet Language Dropdown Fix */
   .language-dropdown.active .language-options {
     position: fixed;
-    top: 70px;
+    top: 15px;
     right: 15px;
     left: auto;
     width: 220px;
@@ -1242,16 +1242,17 @@ html {
   }
 
   .nav-link {
-    padding: 0.3rem 0.4rem;
-    white-space: nowrap;
+    padding: 0.3rem 0.2rem;
+    white-space: normal;
     font-size: 0.7rem;
     min-width: auto;
     text-align: center;
-    flex: 0 1 auto;
-    max-width: 22%;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    line-height: 1.2;
+    flex: 1 1 auto;
+    max-width: 25%;
+    overflow: visible;
+    line-height: 1.1;
+    word-break: break-word;
+    hyphens: auto;
   }
 
   .language-selector {
@@ -1261,14 +1262,16 @@ html {
 
   /* Mobile specific dropdown positioning */
   .language-dropdown.active .language-options {
-    position: absolute;
-    top: 100%;
-    right: 0;
+    position: fixed;
+    top: 15px;
+    right: 10px;
     left: auto;
     width: 180px;
-    margin-top: 0.5rem;
+    margin-top: 0;
     transform: translateY(0);
     z-index: 999999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 240, 80, 0.2);
   }
 
   .home-header,
@@ -1316,8 +1319,11 @@ html {
 
   .nav-link {
     font-size: 0.65rem;
-    padding: 0.25rem 0.3rem;
-    max-width: 23%;
+    padding: 0.25rem 0.2rem;
+    max-width: 25%;
+    white-space: normal;
+    word-break: break-word;
+    hyphens: auto;
   }
 }
 
@@ -2719,12 +2725,14 @@ html {
 
   .language-dropdown.active .language-options {
     position: fixed;
-    top: auto;
-    bottom: 50%;
-    left: 50%;
-    transform: translateX(-50%);
+    top: 15px;
+    right: 15px;
+    left: auto;
+    transform: translateY(0);
     width: 200px;
     z-index: 99999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 240, 80, 0.2);
   }
 }
 
@@ -2777,7 +2785,7 @@ html {
   /* Mobile Language Dropdown Fix */
   .language-dropdown.active .language-options {
     position: fixed;
-    top: 80px;
+    top: 15px;
     right: 10px;
     left: auto;
     width: 200px;
