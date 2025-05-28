@@ -301,6 +301,11 @@ function setLanguage(lang) {
   localStorage.setItem("selectedLanguage", lang);
 }
 
+// Make setLanguage globally accessible
+if (typeof window !== "undefined") {
+  window.setLanguage = setLanguage;
+}
+
 function getCurrentLanguage() {
   return localStorage.getItem("selectedLanguage") || "en";
 }

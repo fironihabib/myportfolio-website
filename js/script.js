@@ -997,176 +997,139 @@ let dropdownListenersAttached = false;
 let outsideClickListenerAttached = false;
 
 function initializeLanguageDropdowns() {
-  // Get ALL language dropdowns (not just visible ones)
-  const allDropdowns = document.querySelectorAll(".language-dropdown");
+  console.log("🌍 Initializing language dropdowns...");
 
-  console.log(`🌍 Found ${allDropdowns.length} language dropdowns`);
-
-  // Remove existing event listeners first
-  if (dropdownListenersAttached) {
-    console.log("🌍 Removing existing dropdown listeners...");
-    allDropdowns.forEach((dropdown) => {
-      const selectedLanguage = dropdown.querySelector(".selected-language");
-      const languageOptions = dropdown.querySelectorAll(".language-option");
-
-      if (selectedLanguage) {
-        // Clone node to remove all event listeners
-        const newSelectedLanguage = selectedLanguage.cloneNode(true);
-        selectedLanguage.parentNode.replaceChild(
-          newSelectedLanguage,
-          selectedLanguage
-        );
-      }
-
-      languageOptions.forEach((option) => {
-        const newOption = option.cloneNode(true);
-        option.parentNode.replaceChild(newOption, option);
-      });
-    });
-  }
-
-  // Re-query dropdowns after potential cloning
-  const freshDropdowns = document.querySelectorAll(".language-dropdown");
-
-  // Add event listeners to each dropdown
-  freshDropdowns.forEach((dropdown, index) => {
-    const selectedLanguage = dropdown.querySelector(".selected-language");
-    const languageOptions = dropdown.querySelectorAll(".language-option");
-    const parentPage = dropdown.closest("section")?.className || "unknown";
-
-    console.log(`Dropdown ${index + 1} (${parentPage}):`, {
-      dropdown: dropdown,
-      selectedLanguage: !!selectedLanguage,
-      optionsCount: languageOptions.length,
-    });
-
-    if (selectedLanguage) {
-      // Add click event listener to selected language
-      selectedLanguage.addEventListener("click", function (e) {
-        e.stopPropagation();
-        e.preventDefault();
-
-        console.log(`🖱️ Dropdown ${index + 1} (${parentPage}) clicked`);
-
-        // Close all other dropdowns first
-        document
-          .querySelectorAll(".language-dropdown")
-          .forEach((otherDropdown) => {
-            if (otherDropdown !== dropdown) {
-              otherDropdown.classList.remove("active");
-            }
-          });
-
-        // Toggle current dropdown
-        dropdown.classList.toggle("active");
-
-        // Add mobile-specific handling
-        if (window.innerWidth <= 480) {
-          if (dropdown.classList.contains("active")) {
-            // Prevent body scroll when dropdown is open on mobile
-            document.body.style.overflow = "hidden";
-          } else {
-            // Restore body scroll when dropdown is closed
-            document.body.style.overflow = "";
-          }
-        }
-
-        console.log(
-          `Dropdown ${index + 1} active: ${dropdown.classList.contains(
-            "active"
-          )}`
-        );
-      });
-
-      // Add event listeners to language options
-      languageOptions.forEach((option) => {
-        option.addEventListener("click", function (e) {
-          e.stopPropagation();
-          e.preventDefault();
-
-          const lang = this.getAttribute("data-lang");
-          const flagSrc = this.querySelector(".flag-icon").src;
-          const langName = this.querySelector("span").textContent;
-
-          console.log(`🌍 Language selected: ${lang} (${langName})`);
-
-          // Update language text based on selection
-          const langCodes = {
-            en: "EN",
-            az: "AZ",
-            tr: "TR",
-            ru: "RU",
-          };
-
-          // Update all language dropdowns across all pages
-          updateAllLanguageDropdowns(flagSrc, langCodes[lang]);
-
-          // Close all dropdowns
-          document.querySelectorAll(".language-dropdown").forEach((dd) => {
-            dd.classList.remove("active");
-          });
-
-          // Restore body scroll on mobile
-          if (window.innerWidth <= 480) {
-            document.body.style.overflow = "";
-          }
-
-          // Store selected language in localStorage
-          localStorage.setItem("selectedLanguage", lang);
-          localStorage.setItem("selectedLanguageFlag", flagSrc);
-          localStorage.setItem("selectedLanguageCode", langCodes[lang]);
-
-          // Update currentLanguage in translations.js
-          if (typeof window !== "undefined") {
-            window.currentLanguage = lang;
-          }
-
-          // Update page content with translations
-          console.log(`🔄 Updating translations to: ${lang}`);
-          if (typeof setLanguage === "function") {
-            setLanguage(lang);
-          } else if (typeof updatePageContent === "function") {
-            // Fallback: directly call updatePageContent
-            if (typeof window !== "undefined") {
-              window.currentLanguage = lang;
-            }
-            updatePageContent();
-          }
-        });
-      });
-    }
-  });
-
-  // Close dropdowns when clicking outside (only attach once)
-  if (!outsideClickListenerAttached) {
-    document.addEventListener("click", function (e) {
-      if (!e.target.closest(".language-dropdown")) {
-        document.querySelectorAll(".language-dropdown").forEach((dropdown) => {
-          dropdown.classList.remove("active");
-        });
-
-        // Restore body scroll on mobile when closing
-        if (window.innerWidth <= 480) {
-          document.body.style.overflow = "";
-        }
-      }
-    });
-    outsideClickListenerAttached = true;
-  }
-
-  // Mark listeners as attached
-  dropdownListenersAttached = true;
+  // Use event delegation for better performance and reliability
+  setupEventDelegation();
 
   // Load saved language preference
   loadSavedLanguage();
 }
 
+function setupEventDelegation() {
+  // Remove existing delegated listeners if any
+  document.removeEventListener("click", handleLanguageDropdownClick);
+  document.removeEventListener("click", handleOutsideClick);
+
+  // Add event delegation for dropdown clicks
+  document.addEventListener("click", handleLanguageDropdownClick);
+
+  // Add outside click handler
+  document.addEventListener("click", handleOutsideClick);
+
+  console.log("🌍 Event delegation setup complete");
+}
+
+function handleLanguageDropdownClick(e) {
+  // Handle selected language clicks
+  if (e.target.closest(".selected-language")) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const dropdown = e.target.closest(".language-dropdown");
+    const parentPage = dropdown.closest("section")?.className || "unknown";
+
+    console.log(`🖱️ Dropdown clicked on page: ${parentPage}`);
+
+    // Close all other dropdowns
+    document.querySelectorAll(".language-dropdown").forEach((otherDropdown) => {
+      if (otherDropdown !== dropdown) {
+        otherDropdown.classList.remove("active");
+      }
+    });
+
+    // Toggle current dropdown
+    dropdown.classList.toggle("active");
+
+    // Mobile handling
+    if (window.innerWidth <= 480) {
+      if (dropdown.classList.contains("active")) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "";
+      }
+    }
+
+    console.log(`Dropdown active: ${dropdown.classList.contains("active")}`);
+    return;
+  }
+
+  // Handle language option clicks
+  if (e.target.closest(".language-option")) {
+    e.stopPropagation();
+    e.preventDefault();
+
+    const option = e.target.closest(".language-option");
+    const lang = option.getAttribute("data-lang");
+    const flagSrc = option.querySelector(".flag-icon").src;
+    const langName = option.querySelector("span").textContent;
+
+    console.log(`🌍 Language selected: ${lang} (${langName})`);
+
+    // Update language
+    selectLanguage(lang, flagSrc, langName);
+    return;
+  }
+}
+
+function handleOutsideClick(e) {
+  if (!e.target.closest(".language-dropdown")) {
+    document.querySelectorAll(".language-dropdown").forEach((dropdown) => {
+      dropdown.classList.remove("active");
+    });
+
+    // Restore body scroll on mobile
+    if (window.innerWidth <= 480) {
+      document.body.style.overflow = "";
+    }
+  }
+}
+
+function selectLanguage(lang, flagSrc, langName) {
+  const langCodes = {
+    en: "EN",
+    az: "AZ",
+    tr: "TR",
+    ru: "RU",
+  };
+
+  // Update all language dropdowns
+  updateAllLanguageDropdowns(flagSrc, langCodes[lang]);
+
+  // Close all dropdowns
+  document.querySelectorAll(".language-dropdown").forEach((dd) => {
+    dd.classList.remove("active");
+  });
+
+  // Restore body scroll on mobile
+  if (window.innerWidth <= 480) {
+    document.body.style.overflow = "";
+  }
+
+  // Store selected language
+  localStorage.setItem("selectedLanguage", lang);
+  localStorage.setItem("selectedLanguageFlag", flagSrc);
+  localStorage.setItem("selectedLanguageCode", langCodes[lang]);
+
+  // Update translations
+  console.log(`🔄 Updating translations to: ${lang}`);
+  if (typeof window.setLanguage === "function") {
+    window.setLanguage(lang);
+  } else if (typeof updatePageContent === "function") {
+    // Update currentLanguage and call updatePageContent
+    currentLanguage = lang;
+    if (typeof window !== "undefined") {
+      window.currentLanguage = lang;
+    }
+    updatePageContent();
+  }
+}
+
 // Re-initialize dropdowns when page changes
 function reinitializeDropdowns() {
   console.log("🔄 Reinitializing dropdowns for page change...");
-  dropdownListenersAttached = false;
-  // Don't reset outsideClickListenerAttached as it's global
-  initializeLanguageDropdowns();
+  // Event delegation handles all pages automatically, just load saved language
+  loadSavedLanguage();
 }
 
 // Helper function for dropdown click handling
@@ -1206,10 +1169,12 @@ function loadSavedLanguage() {
       window.currentLanguage = savedLang;
     }
 
-    // Update translations
-    if (typeof setLanguage === "function") {
-      setLanguage(savedLang);
+    // Update translations using the function from translations.js
+    if (typeof window.setLanguage === "function") {
+      window.setLanguage(savedLang);
     } else if (typeof updatePageContent === "function") {
+      // Update currentLanguage and call updatePageContent
+      currentLanguage = savedLang;
       updatePageContent();
     }
   }
