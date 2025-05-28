@@ -988,21 +988,15 @@ html {
   }
 
   /* Fix all page sections for tablet - Force Override */
-  .hero-section,
-  .home-page,
-  .about-page,
-  .work-page,
-  .contact-page {
+  .hero-section {
     height: auto !important;
     min-height: 100vh !important;
     overflow-y: auto !important;
     overflow-x: hidden !important;
     width: 100% !important;
-    display: flex !important;
-    flex-direction: column !important;
   }
 
-  /* Ensure proper scrolling - Force Override */
+  /* Only active pages should be displayed - DON'T FORCE ALL PAGES */
   .home-page.active,
   .about-page.active,
   .work-page.active,
@@ -1010,6 +1004,18 @@ html {
     display: flex !important;
     flex-direction: column !important;
     width: 100% !important;
+    height: auto !important;
+    min-height: 100vh !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
+  }
+
+  /* Ensure inactive pages are hidden */
+  .home-page:not(.active),
+  .about-page:not(.active),
+  .work-page:not(.active),
+  .contact-page:not(.active) {
+    display: none !important;
   }
 
   /* Tablet Navigation - Force Override */
@@ -1701,13 +1707,7 @@ html {
 
 /* ===== TABLET ABOUT PAGE (768px - 1024px) - FORCE OVERRIDE ===== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .about-page {
-    height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    width: 100% !important;
-  }
+  /* About page structure handled by main tablet CSS above */
 
   .about-me-content {
     padding: 15px 10px 30px 10px !important;
@@ -2433,13 +2433,7 @@ html {
 
 /* ===== TABLET WORK PAGE (768px - 1024px) - FORCE OVERRIDE ===== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .work-page {
-    height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    width: 100% !important;
-  }
+  /* Work page structure handled by main tablet CSS above */
 
   .work-content {
     padding: 0.5rem 0.5rem 1rem 0.5rem !important;
@@ -2995,13 +2989,7 @@ html {
 /* Contact Page Responsive Design */
 /* ===== TABLET CONTACT PAGE (768px - 1024px) - FORCE OVERRIDE ===== */
 @media (min-width: 768px) and (max-width: 1024px) {
-  .contact-page {
-    height: auto !important;
-    min-height: 100vh !important;
-    overflow-y: auto !important;
-    overflow-x: hidden !important;
-    width: 100% !important;
-  }
+  /* Contact page structure handled by main tablet CSS above */
 
   .contact-content {
     padding: 20px 15px !important;
