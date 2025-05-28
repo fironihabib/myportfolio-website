@@ -286,8 +286,17 @@ const translations = {
 // ===== TRANSLATION FUNCTIONS =====
 let currentLanguage = "en";
 
+// Make currentLanguage globally accessible
+if (typeof window !== "undefined") {
+  window.currentLanguage = currentLanguage;
+}
+
 function setLanguage(lang) {
   currentLanguage = lang;
+  if (typeof window !== "undefined") {
+    window.currentLanguage = lang;
+  }
+  console.log(`🔄 setLanguage called with: ${lang}`);
   updatePageContent();
   localStorage.setItem("selectedLanguage", lang);
 }
@@ -297,8 +306,14 @@ function getCurrentLanguage() {
 }
 
 function translate(key) {
+  // Use global currentLanguage if available, otherwise use local
+  const lang =
+    (typeof window !== "undefined" && window.currentLanguage) ||
+    currentLanguage ||
+    getCurrentLanguage();
+
   const keys = key.split(".");
-  let value = translations[currentLanguage];
+  let value = translations[lang];
 
   for (const k of keys) {
     if (value && value[k]) {

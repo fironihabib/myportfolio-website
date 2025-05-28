@@ -992,8 +992,9 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 500);
 });
 
-// Global variable to track if event listeners are already attached
+// Global variables to track event listeners
 let dropdownListenersAttached = false;
+let outsideClickListenerAttached = false;
 
 function initializeLanguageDropdowns() {
   // Get ALL language dropdowns (not just visible ones)
@@ -1001,14 +1002,34 @@ function initializeLanguageDropdowns() {
 
   console.log(`🌍 Found ${allDropdowns.length} language dropdowns`);
 
-  // Only attach listeners once to prevent duplicates
+  // Remove existing event listeners first
   if (dropdownListenersAttached) {
-    console.log("🌍 Dropdown listeners already attached, skipping...");
-    return;
+    console.log("🌍 Removing existing dropdown listeners...");
+    allDropdowns.forEach((dropdown) => {
+      const selectedLanguage = dropdown.querySelector(".selected-language");
+      const languageOptions = dropdown.querySelectorAll(".language-option");
+
+      if (selectedLanguage) {
+        // Clone node to remove all event listeners
+        const newSelectedLanguage = selectedLanguage.cloneNode(true);
+        selectedLanguage.parentNode.replaceChild(
+          newSelectedLanguage,
+          selectedLanguage
+        );
+      }
+
+      languageOptions.forEach((option) => {
+        const newOption = option.cloneNode(true);
+        option.parentNode.replaceChild(newOption, option);
+      });
+    });
   }
 
+  // Re-query dropdowns after potential cloning
+  const freshDropdowns = document.querySelectorAll(".language-dropdown");
+
   // Add event listeners to each dropdown
-  allDropdowns.forEach((dropdown, index) => {
+  freshDropdowns.forEach((dropdown, index) => {
     const selectedLanguage = dropdown.querySelector(".selected-language");
     const languageOptions = dropdown.querySelectorAll(".language-option");
     const parentPage = dropdown.closest("section")?.className || "unknown";
@@ -1095,9 +1116,21 @@ function initializeLanguageDropdowns() {
           localStorage.setItem("selectedLanguageFlag", flagSrc);
           localStorage.setItem("selectedLanguageCode", langCodes[lang]);
 
+          // Update currentLanguage in translations.js
+          if (typeof window !== "undefined") {
+            window.currentLanguage = lang;
+          }
+
           // Update page content with translations
+          console.log(`🔄 Updating translations to: ${lang}`);
           if (typeof setLanguage === "function") {
             setLanguage(lang);
+          } else if (typeof updatePageContent === "function") {
+            // Fallback: directly call updatePageContent
+            if (typeof window !== "undefined") {
+              window.currentLanguage = lang;
+            }
+            updatePageContent();
           }
         });
       });
@@ -1105,18 +1138,21 @@ function initializeLanguageDropdowns() {
   });
 
   // Close dropdowns when clicking outside (only attach once)
-  document.addEventListener("click", function (e) {
-    if (!e.target.closest(".language-dropdown")) {
-      document.querySelectorAll(".language-dropdown").forEach((dropdown) => {
-        dropdown.classList.remove("active");
-      });
+  if (!outsideClickListenerAttached) {
+    document.addEventListener("click", function (e) {
+      if (!e.target.closest(".language-dropdown")) {
+        document.querySelectorAll(".language-dropdown").forEach((dropdown) => {
+          dropdown.classList.remove("active");
+        });
 
-      // Restore body scroll on mobile when closing
-      if (window.innerWidth <= 480) {
-        document.body.style.overflow = "";
+        // Restore body scroll on mobile when closing
+        if (window.innerWidth <= 480) {
+          document.body.style.overflow = "";
+        }
       }
-    }
-  });
+    });
+    outsideClickListenerAttached = true;
+  }
 
   // Mark listeners as attached
   dropdownListenersAttached = true;
@@ -1129,6 +1165,7 @@ function initializeLanguageDropdowns() {
 function reinitializeDropdowns() {
   console.log("🔄 Reinitializing dropdowns for page change...");
   dropdownListenersAttached = false;
+  // Don't reset outsideClickListenerAttached as it's global
   initializeLanguageDropdowns();
 }
 
@@ -1154,11 +1191,27 @@ function updateAllLanguageDropdowns(flagSrc, langCode) {
 }
 
 function loadSavedLanguage() {
+  const savedLang = localStorage.getItem("selectedLanguage");
   const savedFlag = localStorage.getItem("selectedLanguageFlag");
   const savedCode = localStorage.getItem("selectedLanguageCode");
 
-  if (savedFlag && savedCode) {
+  if (savedLang && savedFlag && savedCode) {
+    console.log(`🔄 Loading saved language: ${savedLang}`);
+
+    // Update dropdown display
     updateAllLanguageDropdowns(savedFlag, savedCode);
+
+    // Update currentLanguage
+    if (typeof window !== "undefined") {
+      window.currentLanguage = savedLang;
+    }
+
+    // Update translations
+    if (typeof setLanguage === "function") {
+      setLanguage(savedLang);
+    } else if (typeof updatePageContent === "function") {
+      updatePageContent();
+    }
   }
 }
 
