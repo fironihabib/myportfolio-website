@@ -3064,12 +3064,7 @@ html {
   .contact-page {
     background: #000000 !important;
     color: white !important;
-    position: fixed !important;
-    top: 0 !important;
-    left: 0 !important;
-    width: 100% !important;
-    height: 100vh !important;
-    z-index: 1000 !important;
+    display: none !important;
   }
 
   /* Contact page when displayed via style.display = "flex" */
@@ -3097,14 +3092,15 @@ html {
 
   .contact-content {
     flex: 1 !important;
-    padding: 1rem !important;
+    padding: 0 !important;
     width: 100% !important;
     box-sizing: border-box !important;
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    min-height: calc(100vh - 100px) !important;
+    min-height: calc(100vh - 80px) !important;
+    overflow-y: auto !important;
   }
 
   .contact-title {
@@ -3320,9 +3316,12 @@ html {
     flex-direction: column !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 1.5rem !important;
-    height: auto !important;
-    min-height: calc(100vh - 100px) !important;
+    gap: 2rem !important;
+    height: 100vh !important;
+    padding: 2rem 1rem !important;
+    box-sizing: border-box !important;
+    max-width: 600px !important;
+    margin: 0 auto !important;
   }
 
   .contact-form-view {
@@ -3367,12 +3366,13 @@ html {
     margin-top: 1rem !important;
   }
 
-  .contact-character-container {
-    width: 200px !important;
-    height: 200px !important;
+  .contact-default-view .contact-character-container {
+    width: 250px !important;
+    height: 250px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
+    margin: 1rem 0 !important;
   }
 
   .contact-character {
@@ -3382,16 +3382,23 @@ html {
   }
 
   /* Additional tablet optimizations */
-  .contact-title {
-    font-size: clamp(1.8rem, 4vw, 2.5rem) !important;
+  .contact-default-view .contact-title {
+    font-size: 2.5rem !important;
     margin-bottom: 1rem !important;
+    color: #ffffff !important;
+    font-family: "K2D", sans-serif !important;
+    font-weight: 700 !important;
+    text-align: center !important;
   }
 
-  .contact-subtitle {
-    font-size: clamp(0.9rem, 2.5vw, 1.1rem) !important;
-    line-height: 1.5 !important;
-    max-width: 90% !important;
-    margin: 0 auto 1rem auto !important;
+  .contact-default-view .contact-subtitle {
+    font-size: 1.1rem !important;
+    line-height: 1.6 !important;
+    max-width: 100% !important;
+    margin: 0 auto 2rem auto !important;
+    color: #cccccc !important;
+    font-family: "DM Sans", sans-serif !important;
+    text-align: center !important;
   }
 
   /* Ensure proper button functionality */
