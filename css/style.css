@@ -3855,12 +3855,12 @@ html {
   .contact-form-view[style*="flex"] {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     text-align: center !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0.8rem 1.2rem 0.8rem 1.2rem !important;
+    padding: 1rem 1.2rem 1rem 1.2rem !important;
     height: 100vh !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
@@ -3891,10 +3891,10 @@ html {
 
   .contact-form {
     width: 100% !important;
-    flex: 1 !important;
+    flex: 0 1 auto !important;
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     min-height: 0 !important;
   }
 
@@ -3902,14 +3902,14 @@ html {
     display: flex !important;
     flex-direction: column !important;
     gap: 0.7rem !important;
-    flex: 0 1 auto !important;
+    flex: 1 !important;
     justify-content: flex-start !important;
     width: 100% !important;
     padding: 0 !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0 !important;
     min-height: 0 !important;
-    max-height: calc(100vh - 280px) !important;
-    overflow-y: auto !important;
+    max-height: none !important;
+    overflow: visible !important;
   }
 
   .form-group {
@@ -4063,12 +4063,10 @@ html {
     gap: 0.7rem !important;
     width: 100% !important;
     flex-shrink: 0 !important;
-    margin-top: 0.8rem !important;
+    margin-top: 1.2rem !important;
     padding-bottom: 1rem !important;
-    position: sticky !important;
-    bottom: 0 !important;
-    background: #000000 !important;
-    padding-top: 0.5rem !important;
+    position: relative !important;
+    background: transparent !important;
   }
 }
 
