@@ -84,7 +84,7 @@ const translations = {
       contact: "Əlaqə",
       // Mobile short versions
       homeMobile: "Ana",
-      aboutMobile: "Haqqımda",
+      aboutMobile: "Haqqım",
       workMobile: "İşlər",
       contactMobile: "Əlaqə",
     },
@@ -160,7 +160,7 @@ const translations = {
       contact: "İletişim",
       // Mobile short versions
       homeMobile: "Ana",
-      aboutMobile: "Hakkımda",
+      aboutMobile: "Hakkım",
       workMobile: "Çalışma",
       contactMobile: "İletişim",
     },
@@ -399,7 +399,9 @@ function updateNavigation() {
       text === "Haqqımda" ||
       text === "Hakkımda" ||
       text === "Обо мне" ||
-      text === "About" // Mobile versions
+      text === "About" ||
+      text === "Haqqım" ||
+      text === "Hakkım" // Mobile versions
     ) {
       link.textContent = isMobile
         ? translate("nav.aboutMobile")
