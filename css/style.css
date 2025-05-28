@@ -2826,22 +2826,29 @@ html {
 }
 
 .contact-character-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 400px;
-  height: 400px;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  width: 400px !important;
+  height: 400px !important;
+  margin: 20px auto !important;
+  background: transparent !important;
+  position: relative !important;
+  z-index: 5 !important;
 }
 
 .contact-character {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  transition: transform 0.3s ease;
+  width: 400px !important;
+  height: 400px !important;
+  object-fit: contain !important;
+  transition: transform 0.3s ease !important;
   display: block !important;
-  margin: 0 auto;
+  margin: 0 auto !important;
   opacity: 1 !important;
   visibility: visible !important;
+  position: relative !important;
+  z-index: 6 !important;
+  background: transparent !important;
 }
 
 .contact-character:hover {
@@ -3372,25 +3379,35 @@ html {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin: 0.5rem 0 !important;
+    margin: 1rem 0 !important;
     width: 100% !important;
+    position: relative !important;
+    z-index: 5 !important;
   }
 
   .contact-default-view .contact-character-container {
-    width: 200px !important;
-    height: 200px !important;
+    width: 250px !important;
+    height: 250px !important;
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin: 0 !important;
+    margin: 0 auto !important;
+    background: transparent !important;
+    position: relative !important;
+    z-index: 6 !important;
   }
 
   .contact-default-view .contact-character {
-    width: 100% !important;
-    height: 100% !important;
+    width: 250px !important;
+    height: 250px !important;
     object-fit: contain !important;
     display: block !important;
     transition: transform 0.3s ease !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative !important;
+    z-index: 7 !important;
+    background: transparent !important;
   }
 
   .contact-default-view .contact-character:hover {

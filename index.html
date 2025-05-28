@@ -820,7 +820,15 @@
                 alt="Contact Character"
                 class="contact-character"
                 loading="eager"
-                onerror="console.error('Contact image failed to load:', this.src); this.style.display='none';"
+                style="
+                  display: block !important;
+                  opacity: 1 !important;
+                  visibility: visible !important;
+                  width: 100% !important;
+                  height: 100% !important;
+                "
+                onload="console.log('Contact image loaded successfully'); this.style.opacity='1';"
+                onerror="console.error('Contact image failed to load:', this.src); this.style.display='block'; this.style.background='red'; this.style.width='400px'; this.style.height='400px';"
               />
             </div>
           </div>
