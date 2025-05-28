@@ -78,12 +78,12 @@ const translations = {
   az: {
     // Navigation
     nav: {
-      home: "Ana Səhifə",
+      home: "Əsas",
       about: "Haqqımda",
       work: "İşlərim",
       contact: "Əlaqə",
       // Mobile short versions
-      homeMobile: "Ana",
+      homeMobile: "Əsas",
       aboutMobile: "Haqqım",
       workMobile: "İşlər",
       contactMobile: "Əlaqə",
@@ -154,14 +154,14 @@ const translations = {
   tr: {
     // Navigation
     nav: {
-      home: "Ana Sayfa",
+      home: "Anasayfa",
       about: "Hakkımda",
-      work: "Çalışmalarım",
+      work: "Projelerim",
       contact: "İletişim",
       // Mobile short versions
       homeMobile: "Ana",
       aboutMobile: "Hakkım",
-      workMobile: "Çalışma",
+      workMobile: "Proje",
       contactMobile: "İletişim",
     },
 
@@ -192,9 +192,9 @@ const translations = {
 
     // Work Page
     work: {
-      title: "Çalışmalarım",
+      title: "Projelerim",
       subtitle: "İşte son projelerim",
-      viewWork: "Çalışmayı Görüntüle",
+      viewWork: "Projeyi Görüntüle",
       learnMore: "Daha Fazla Öğren",
       completedProject: "Tamamlanmış Proje",
       projectOnHold: "Proje Beklemede",
@@ -388,6 +388,8 @@ function updateNavigation() {
       text === "Home" ||
       text === "Ana Səhifə" ||
       text === "Ana Sayfa" ||
+      text === "Anasayfa" ||
+      text === "Əsas" ||
       text === "Главная" ||
       text === "Ana" // Mobile versions
     ) {
@@ -410,9 +412,11 @@ function updateNavigation() {
       text === "Work" ||
       text === "İşlərim" ||
       text === "Çalışmalarım" ||
+      text === "Projelerim" ||
       text === "Работы" ||
       text === "İşlər" ||
-      text === "Çalışma" // Mobile versions
+      text === "Çalışma" ||
+      text === "Proje" // Mobile versions
     ) {
       link.textContent = isMobile
         ? translate("nav.workMobile")
