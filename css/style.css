@@ -226,6 +226,60 @@ html {
   animation-delay: 1.5s;
 }
 
+/* Mobile sparkle positioning */
+@media (max-width: 767px) {
+  .sparkle-container {
+    z-index: 1 !important;
+  }
+
+  .sparkle {
+    z-index: 1 !important;
+  }
+
+  .sparkle-1 {
+    top: 8% !important;
+    left: 5% !important;
+    z-index: 1 !important;
+  }
+
+  .sparkle-2 {
+    top: 12% !important;
+    right: 8% !important;
+    z-index: 1 !important;
+  }
+
+  .sparkle-3 {
+    bottom: 25% !important;
+    left: 8% !important;
+    z-index: 1 !important;
+  }
+
+  .sparkle-4 {
+    bottom: 30% !important;
+    right: 12% !important;
+    z-index: 1 !important;
+  }
+
+  /* Ensure profile elements are above sparkles */
+  .profile-elements-container {
+    z-index: 5 !important;
+  }
+
+  .profile-image-wrapper {
+    z-index: 6 !important;
+  }
+
+  .welcome-text {
+    z-index: 7 !important;
+    position: relative !important;
+  }
+
+  .portfolio-button {
+    z-index: 7 !important;
+    position: relative !important;
+  }
+}
+
 /* Tablet sparkle positioning */
 @media (min-width: 768px) and (max-width: 1024px) {
   .sparkle-1 {
@@ -582,6 +636,27 @@ html {
   .home-profile-image {
     width: 200px;
     height: 200px;
+  }
+
+  /* Small mobile sparkle positioning */
+  .sparkle-1 {
+    top: 6% !important;
+    left: 3% !important;
+  }
+
+  .sparkle-2 {
+    top: 10% !important;
+    right: 5% !important;
+  }
+
+  .sparkle-3 {
+    bottom: 22% !important;
+    left: 5% !important;
+  }
+
+  .sparkle-4 {
+    bottom: 28% !important;
+    right: 8% !important;
   }
 }
 
@@ -1516,6 +1591,27 @@ html {
   .sparkle {
     width: 12px;
     height: 12px;
+  }
+
+  /* Extra small mobile sparkle positioning */
+  .sparkle-1 {
+    top: 5% !important;
+    left: 2% !important;
+  }
+
+  .sparkle-2 {
+    top: 8% !important;
+    right: 3% !important;
+  }
+
+  .sparkle-3 {
+    bottom: 20% !important;
+    left: 3% !important;
+  }
+
+  .sparkle-4 {
+    bottom: 25% !important;
+    right: 5% !important;
   }
 
   /* Extra small navigation fixes */
