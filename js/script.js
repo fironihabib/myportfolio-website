@@ -1523,7 +1523,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (screenWidth <= 480) {
       cardWidth = 280;
       cardGap = 12; // 0.8rem = ~12px
-    } else if (screenWidth <= 768) {
+    } else if (screenWidth <= 767) {
       cardWidth = 320;
       cardGap = 16; // 1rem = 16px
     } else if (screenWidth <= 1024) {

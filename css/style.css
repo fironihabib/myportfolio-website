@@ -121,7 +121,7 @@ html {
 }
 
 /* Mobile overflow fix */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   body {
     overflow-x: hidden;
     overflow-y: auto;
@@ -520,7 +520,7 @@ html {
 }
 
 /* ===== MOBILE RESPONSIVE STYLES ===== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .home-content {
     flex-direction: column;
     padding: 1rem 2rem;
@@ -969,8 +969,8 @@ html {
 }
 
 /* ===== RESPONSIVE DESIGN ===== */
-/* Tablet Styles (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Tablet Styles (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
   /* Tablet Base Styles */
   body {
     overflow-x: hidden;
@@ -1105,7 +1105,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   /* Mobile Language Dropdown Fix */
   .language-dropdown.active .language-options {
     position: fixed;
@@ -1665,8 +1665,8 @@ html {
   }
 }
 
-/* Tablet About Page (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Tablet About Page (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .about-me-content {
     padding: 30px 20px 50px 20px;
   }
@@ -1712,7 +1712,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .about-page {
     height: auto;
     min-height: 100vh;
@@ -2370,8 +2370,8 @@ html {
   }
 }
 
-/* Tablet Work Page (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Tablet Work Page (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .work-content {
     padding: 1rem 2rem 1.5rem 2rem;
   }
@@ -2416,7 +2416,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .work-content {
     padding: 0.5rem 1rem 1rem 1rem;
     padding-top: 0.2rem;
@@ -2898,8 +2898,8 @@ html {
 }
 
 /* Contact Page Responsive Design */
-/* Tablet Contact Page (769px - 1024px) */
-@media (min-width: 769px) and (max-width: 1024px) {
+/* Tablet Contact Page (768px - 1024px) */
+@media (min-width: 768px) and (max-width: 1024px) {
   .contact-content {
     padding: 50px 30px;
   }
@@ -2963,7 +2963,7 @@ html {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .contact-page {
     height: auto;
     min-height: 100vh;
@@ -3087,7 +3087,7 @@ html {
 }
 
 /* ===== WORK PAGE RESPONSIVE ===== */
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .work-page {
     height: auto;
     min-height: 100vh;
