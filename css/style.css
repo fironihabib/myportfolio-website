@@ -3525,112 +3525,92 @@ html {
   }
 }
 
-@media (max-width: 767px) {
-  .contact-page {
-    height: auto;
-    min-height: 100vh;
-    overflow-y: auto;
-    overflow-x: hidden;
-    width: 100%;
+/* Removed duplicate mobile CSS block - consolidated into main mobile section */
+
+@media (max-width: 480px) {
+  /* Small mobile contact form optimizations */
+  .contact-form-view[style*="flex"] {
+    padding: 1rem 1rem 2rem 1rem !important;
   }
 
-  .contact-content {
-    padding: 40px 20px;
-    min-height: auto;
-    width: 100%;
-    box-sizing: border-box;
+  .contact-form-view .contact-title {
+    font-size: clamp(1.4rem, 8vw, 1.8rem) !important;
+    margin-top: 1rem !important;
+    margin-bottom: 0.6rem !important;
   }
 
-  .contact-title {
-    font-size: 2.5rem;
+  .contact-form-view .contact-subtitle {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.5rem !important;
+    line-height: 1.4 !important;
   }
 
-  .contact-character-container {
-    width: 300px;
-    height: 300px;
+  .form-fields-container {
+    gap: 1.2rem !important;
   }
 
-  .get-in-touch-btn {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.85rem;
-  }
-
-  .get-in-touch-section {
-    margin: 1.5rem 0 2rem 0;
-  }
-
-  .contact-form {
-    max-width: 100%;
-    padding: 1.5rem;
-  }
-
-  .form-group {
-    margin-bottom: 1.5rem;
+  .form-group label {
+    font-size: 0.85rem !important;
+    margin-bottom: 0.5rem !important;
   }
 
   .form-group input,
+  .form-group textarea,
+  .form-group select {
+    padding: 0.8rem !important;
+    min-height: 50px !important;
+    border-radius: 8px !important;
+  }
+
   .form-group textarea {
-    font-size: 14px;
-    padding: 0.8rem;
+    min-height: 110px !important;
   }
 
-  .language-dropdown.active .language-options {
-    position: fixed;
-    top: 15px;
-    right: 15px;
-    left: auto;
-    transform: translateY(0);
-    width: 200px;
-    z-index: 99999;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
-    border: 1px solid rgba(0, 240, 80, 0.2);
-  }
-}
-
-@media (max-width: 480px) {
-  .contact-content {
-    padding: 30px 15px;
+  .country-code-dropdown {
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
+    font-size: 14px !important;
+    padding: 0.8rem 0.3rem !important;
   }
 
-  .contact-title {
-    font-size: 2rem;
+  .phone-input-wrapper {
+    min-height: 50px !important;
+    border-radius: 8px !important;
   }
 
-  .contact-subtitle {
-    font-size: 1rem;
-    margin-bottom: 20px;
-  }
-
-  .contact-character-container {
-    width: 250px;
-    height: 250px;
-  }
-
-  .get-in-touch-btn {
-    padding: 0.7rem 1.2rem;
-    font-size: 0.85rem;
-  }
-
-  .get-in-touch-section {
-    margin: 1rem 0 1.5rem 0;
-  }
-
-  .contact-form {
-    padding: 1rem;
-  }
-
-  .form-buttons-container {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
+  .phone-input-wrapper input {
+    padding: 0.8rem 0.5rem !important;
   }
 
   .submit-btn,
   .back-btn {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
+    padding: 0.9rem 1.2rem !important;
+    font-size: 0.95rem !important;
+    min-height: 52px !important;
+    border-radius: 26px !important;
+  }
+
+  .form-buttons-container {
+    gap: 1rem !important;
+    margin-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
+  }
+
+  /* Default contact view for small mobile */
+  .contact-default-view .contact-character-container {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .contact-default-view .contact-character {
+    width: 160px !important;
+    height: 160px !important;
+  }
+
+  .get-in-touch-btn {
+    padding: 0.7rem 1.1rem !important;
+    font-size: 0.85rem !important;
   }
 
   /* Mobile Language Dropdown Fix */
@@ -3785,7 +3765,7 @@ html {
     text-align: center !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 1rem 1rem 2rem 1rem !important;
+    padding: 1.5rem 1.2rem 2rem 1.2rem !important;
     height: 100vh !important;
     overflow-y: auto !important;
     box-sizing: border-box !important;
@@ -3793,25 +3773,25 @@ html {
   }
 
   .contact-form-view .contact-title {
-    font-size: clamp(1.5rem, 6vw, 2rem) !important;
-    margin-bottom: 0.5rem !important;
+    font-size: clamp(1.6rem, 7vw, 2.2rem) !important;
+    margin-bottom: 0.8rem !important;
     flex-shrink: 0 !important;
     color: #ffffff !important;
     font-family: "K2D", sans-serif !important;
     font-weight: 700 !important;
     text-align: center !important;
-    margin-top: 1rem !important;
+    margin-top: 1.5rem !important;
   }
 
   .contact-form-view .contact-subtitle {
-    font-size: 0.8rem !important;
-    margin-bottom: 1.5rem !important;
-    max-width: 90% !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 2rem !important;
+    max-width: 95% !important;
     flex-shrink: 0 !important;
     color: #cccccc !important;
     font-family: "DM Sans", sans-serif !important;
     text-align: center !important;
-    line-height: 1.4 !important;
+    line-height: 1.5 !important;
   }
 
   .contact-form {
@@ -3825,11 +3805,12 @@ html {
   .form-fields-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 1.5rem !important;
     flex: 1 !important;
     justify-content: flex-start !important;
     width: 100% !important;
     padding: 0 !important;
+    margin-bottom: 1rem !important;
   }
 
   .form-group {
@@ -3838,27 +3819,42 @@ html {
   }
 
   .form-group label {
-    font-size: 0.85rem !important;
-    margin-bottom: 0.4rem !important;
+    font-size: 0.9rem !important;
+    margin-bottom: 0.6rem !important;
     display: block !important;
     color: #ffffff !important;
     font-family: "DM Sans", sans-serif !important;
+    font-weight: 600 !important;
   }
 
   .form-group input,
   .form-group textarea,
   .form-group select {
     font-size: 16px !important;
-    padding: 0.7rem !important;
-    border-radius: 8px !important;
-    min-height: 48px !important;
+    padding: 0.9rem !important;
+    border-radius: 10px !important;
+    min-height: 52px !important;
     width: 100% !important;
     box-sizing: border-box !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    color: #ffffff !important;
+    transition: all 0.3s ease !important;
+  }
+
+  .form-group input:focus,
+  .form-group textarea:focus,
+  .form-group select:focus {
+    outline: none !important;
+    border-color: #00f050 !important;
+    background: rgba(255, 255, 255, 0.12) !important;
+    box-shadow: 0 0 0 2px rgba(0, 240, 80, 0.2) !important;
   }
 
   .form-group textarea {
-    min-height: 100px !important;
+    min-height: 120px !important;
     resize: vertical !important;
+    line-height: 1.5 !important;
   }
 
   /* Mobile phone input wrapper fixes */
@@ -3866,27 +3862,27 @@ html {
     display: flex !important;
     align-items: center !important;
     width: 100% !important;
-    background: rgba(255, 255, 255, 0.05) !important;
-    border: 1px solid rgba(255, 255, 255, 0.2) !important;
-    border-radius: 8px !important;
+    background: rgba(255, 255, 255, 0.08) !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    border-radius: 10px !important;
     box-sizing: border-box !important;
     transition: all 0.3s ease !important;
-    min-height: 48px !important;
+    min-height: 52px !important;
   }
 
   .phone-input-wrapper:focus-within {
     border-color: #00f050 !important;
-    background: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.12) !important;
     box-shadow: 0 0 0 2px rgba(0, 240, 80, 0.2) !important;
   }
 
   .country-code-dropdown {
-    width: 130px !important;
-    min-width: 130px !important;
-    max-width: 130px !important;
-    font-size: 14px !important;
-    padding: 0.7rem 0.3rem !important;
-    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+    width: 135px !important;
+    min-width: 135px !important;
+    max-width: 135px !important;
+    font-size: 15px !important;
+    padding: 0.9rem 0.4rem !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
     background: transparent !important;
     color: #ffffff !important;
     border: none !important;
@@ -3905,7 +3901,7 @@ html {
     flex: 1 !important;
     background: transparent !important;
     border: none !important;
-    padding: 0.7rem 0.5rem !important;
+    padding: 0.9rem 0.6rem !important;
     color: #ffffff !important;
     outline: none !important;
     font-size: 16px !important;
@@ -3922,22 +3918,54 @@ html {
 
   .submit-btn,
   .back-btn {
-    padding: 0.8rem 1.5rem !important;
-    font-size: 0.95rem !important;
+    padding: 1rem 1.5rem !important;
+    font-size: 1rem !important;
     width: 100% !important;
-    border-radius: 25px !important;
-    min-height: 50px !important;
+    border-radius: 30px !important;
+    min-height: 56px !important;
     font-weight: 600 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 0.5rem !important;
+    transition: all 0.3s ease !important;
+    cursor: pointer !important;
+    border: none !important;
+    font-family: "DM Sans", sans-serif !important;
+  }
+
+  .submit-btn {
+    background: linear-gradient(135deg, #00f050, #00cc40) !important;
+    color: #000000 !important;
+    box-shadow: 0 4px 15px rgba(0, 240, 80, 0.3) !important;
+  }
+
+  .submit-btn:hover {
+    background: linear-gradient(135deg, #00e040, #00b835) !important;
+    transform: translateY(-2px) !important;
+    box-shadow: 0 6px 20px rgba(0, 240, 80, 0.4) !important;
+  }
+
+  .back-btn {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 2px solid rgba(255, 255, 255, 0.3) !important;
+  }
+
+  .back-btn:hover {
+    background: rgba(255, 255, 255, 0.1) !important;
+    border-color: rgba(255, 255, 255, 0.5) !important;
+    transform: translateY(-2px) !important;
   }
 
   .form-buttons-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 1.2rem !important;
     width: 100% !important;
     flex-shrink: 0 !important;
-    margin-top: 1.5rem !important;
-    padding-bottom: 1rem !important;
+    margin-top: 2rem !important;
+    padding-bottom: 1.5rem !important;
   }
 }
 
