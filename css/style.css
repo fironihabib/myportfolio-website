@@ -1073,35 +1073,48 @@ html {
 
   /* Tablet Home Page */
   .home-content {
-    padding: 2rem 2rem;
-    gap: 3rem;
-    flex-direction: row;
+    padding: 1.5rem 1.5rem;
+    gap: 2rem;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     max-width: 100%;
+    text-align: center;
   }
 
   .home-left {
-    flex: 1;
-    max-width: 50%;
-    text-align: left;
+    flex: none;
+    max-width: 100%;
+    text-align: center;
+    order: 2;
   }
 
   .home-right {
-    flex: 1;
-    max-width: 50%;
+    flex: none;
+    max-width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    order: 1;
   }
 
   .home-profile-image {
-    width: 280px;
-    height: 280px;
+    width: 240px;
+    height: 240px;
   }
 
   .name {
-    font-size: clamp(2.5rem, 6vw, 3.5rem);
+    font-size: clamp(2rem, 5vw, 2.8rem);
+  }
+
+  .greeting {
+    font-size: clamp(1rem, 3vw, 1.2rem);
+  }
+
+  .download-cv-btn {
+    margin-top: 1.5rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 
@@ -1668,47 +1681,56 @@ html {
 /* Tablet About Page (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .about-me-content {
-    padding: 30px 20px 50px 20px;
+    padding: 20px 15px 40px 15px;
   }
 
   .about-title {
-    font-size: 3rem;
-    margin-bottom: 25px;
+    font-size: 2.5rem;
+    margin-bottom: 20px;
   }
 
   .about-main {
-    gap: 25px;
+    gap: 20px;
     margin-top: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .character-section {
+    order: 1;
   }
 
   .character-background {
-    width: 320px;
-    height: 320px;
+    width: 280px;
+    height: 280px;
   }
 
   .about-text-section {
-    max-width: 650px;
-    padding: 0 15px;
+    max-width: 100%;
+    padding: 0 10px;
+    order: 2;
+    text-align: center;
   }
 
   .about-description p {
-    font-size: 16px;
-    line-height: 1.7;
-    margin-bottom: 18px;
+    font-size: 15px;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: left;
   }
 
   .skills-container {
-    height: 55px;
+    height: 50px;
   }
 
   .skill-item {
-    font-size: 13px;
-    padding: 10px 15px;
-    gap: 6px;
+    font-size: 12px;
+    padding: 8px 12px;
+    gap: 5px;
   }
 
   .skill-item i {
-    font-size: 14px;
+    font-size: 13px;
   }
 }
 
@@ -2373,46 +2395,60 @@ html {
 /* Tablet Work Page (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .work-content {
-    padding: 1rem 2rem 1.5rem 2rem;
+    padding: 1rem 1rem 1.5rem 1rem;
   }
 
   .work-title {
-    font-size: clamp(3rem, 8vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 3.5rem);
     margin-bottom: 1rem;
   }
 
   .work-subtitle {
-    font-size: 1.2rem;
-    margin-bottom: 2rem;
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
     padding: 0 1rem;
   }
 
   .portfolio-gallery {
-    gap: 1.5rem;
-  }
-
-  .project-card {
-    width: 360px;
-    height: 380px;
-    padding: 20px;
-  }
-
-  .project-image {
-    height: 170px;
-  }
-
-  .project-title {
-    font-size: 20px;
-    margin: 15px 0 12px 0;
-  }
-
-  .project-technologies span {
-    font-size: 11px;
-    padding: 4px 10px;
+    gap: 1rem;
+    flex-direction: column;
+    align-items: center;
   }
 
   .gallery-container {
-    max-width: 800px;
+    max-width: 100%;
+    width: 100%;
+  }
+
+  .gallery-track {
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .project-card {
+    width: 300px;
+    height: 340px;
+    padding: 16px;
+    margin: 0.5rem;
+  }
+
+  .project-image {
+    height: 140px;
+  }
+
+  .project-title {
+    font-size: 18px;
+    margin: 12px 0 10px 0;
+  }
+
+  .project-technologies span {
+    font-size: 10px;
+    padding: 3px 8px;
+  }
+
+  .gallery-nav {
+    display: none;
   }
 }
 
@@ -2901,53 +2937,53 @@ html {
 /* Tablet Contact Page (768px - 1024px) */
 @media (min-width: 768px) and (max-width: 1024px) {
   .contact-content {
-    padding: 50px 30px;
+    padding: 30px 20px;
   }
 
   .contact-title {
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     margin-bottom: 1rem;
   }
 
   .contact-subtitle {
-    font-size: 1.3rem;
-    margin-bottom: 30px;
-    padding: 0 2rem;
+    font-size: 1rem;
+    margin-bottom: 20px;
+    padding: 0 1rem;
   }
 
   .contact-character-container {
-    width: 380px;
-    height: 380px;
+    width: 280px;
+    height: 280px;
   }
 
   .get-in-touch-btn {
-    padding: 0.8rem 1.5rem;
-    font-size: 1rem;
+    padding: 0.7rem 1.2rem;
+    font-size: 0.9rem;
   }
 
   .get-in-touch-section {
-    margin: 2rem 0 2.5rem 0;
+    margin: 1.5rem 0 2rem 0;
   }
 
   .contact-form {
-    max-width: 600px;
-    padding: 2rem;
+    max-width: 100%;
+    padding: 1.5rem;
   }
 
   .form-group {
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
   }
 
   .form-group input,
   .form-group textarea {
-    font-size: 16px;
-    padding: 1rem;
+    font-size: 14px;
+    padding: 0.8rem;
   }
 
   .submit-btn,
   .back-btn {
-    padding: 1rem 2rem;
-    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+    font-size: 0.9rem;
   }
 }
 

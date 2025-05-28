@@ -1542,7 +1542,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
   function getMaxIndex() {
     const screenWidth = window.innerWidth;
-    const visibleCards = screenWidth <= 768 ? 1 : 2;
+    // For tablet, show all cards in wrapped layout (no scrolling needed)
+    if (screenWidth >= 768 && screenWidth <= 1024) {
+      return 0; // No scrolling for tablet
+    }
+    const visibleCards = screenWidth <= 767 ? 1 : 2;
     return Math.max(0, projectCards.length - visibleCards);
   }
 
