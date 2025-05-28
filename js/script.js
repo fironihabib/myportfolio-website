@@ -1032,6 +1032,18 @@ function initializeLanguageDropdowns() {
 
         // Toggle current dropdown
         dropdown.classList.toggle("active");
+
+        // Add mobile-specific handling
+        if (window.innerWidth <= 480) {
+          if (dropdown.classList.contains("active")) {
+            // Prevent body scroll when dropdown is open on mobile
+            document.body.style.overflow = "hidden";
+          } else {
+            // Restore body scroll when dropdown is closed
+            document.body.style.overflow = "";
+          }
+        }
+
         console.log(
           `Dropdown ${index + 1} active: ${dropdown.classList.contains(
             "active"
@@ -1065,6 +1077,11 @@ function initializeLanguageDropdowns() {
           // Close dropdown
           dropdown.classList.remove("active");
 
+          // Restore body scroll on mobile
+          if (window.innerWidth <= 480) {
+            document.body.style.overflow = "";
+          }
+
           // Store selected language in localStorage
           localStorage.setItem("selectedLanguage", lang);
           localStorage.setItem("selectedLanguageFlag", flagSrc);
@@ -1085,6 +1102,11 @@ function initializeLanguageDropdowns() {
       allDropdowns.forEach((dropdown) => {
         dropdown.classList.remove("active");
       });
+
+      // Restore body scroll on mobile when closing
+      if (window.innerWidth <= 480) {
+        document.body.style.overflow = "";
+      }
     }
   });
 

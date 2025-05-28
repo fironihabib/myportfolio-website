@@ -969,6 +969,19 @@ html {
 
 /* ===== RESPONSIVE DESIGN ===== */
 @media (max-width: 768px) {
+  /* Tablet Language Dropdown Fix */
+  .language-dropdown.active .language-options {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 250px;
+    max-width: 80vw;
+    z-index: 999999;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.9);
+    border: 1px solid rgba(0, 240, 80, 0.2);
+  }
+
   .profile-elements-container {
     padding: 1.5rem 1rem;
     min-height: 75vh;
@@ -2716,13 +2729,33 @@ html {
     font-size: 1rem;
   }
 
+  /* Mobile Language Dropdown Fix */
+  .language-dropdown {
+    position: static;
+  }
+
+  .language-dropdown .language-options {
+    position: fixed;
+    top: auto;
+    right: 10px;
+    left: 10px;
+    width: calc(100% - 20px);
+    max-width: 300px;
+    margin: 0 auto;
+    transform: translateY(-10px);
+    z-index: 999999;
+  }
+
   .language-dropdown.active .language-options {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    width: 250px;
-    z-index: 99999;
+    width: 280px;
+    max-width: 90vw;
+    z-index: 999999;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.9);
+    border: 2px solid rgba(0, 240, 80, 0.3);
   }
 }
 
