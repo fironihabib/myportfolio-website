@@ -3855,12 +3855,12 @@ html {
   .contact-form-view[style*="flex"] {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: space-between !important;
     align-items: center !important;
     text-align: center !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 1rem 1.2rem 1rem 1.2rem !important;
+    padding: 0.8rem 1.2rem 0.8rem 1.2rem !important;
     height: 100vh !important;
     overflow: hidden !important;
     box-sizing: border-box !important;
@@ -3868,25 +3868,25 @@ html {
   }
 
   .contact-form-view .contact-title {
-    font-size: clamp(1.4rem, 6vw, 1.8rem) !important;
-    margin-bottom: 0.5rem !important;
+    font-size: clamp(1.2rem, 5vw, 1.6rem) !important;
+    margin-bottom: 0.3rem !important;
     flex-shrink: 0 !important;
     color: #ffffff !important;
     font-family: "K2D", sans-serif !important;
     font-weight: 700 !important;
     text-align: center !important;
-    margin-top: 0.5rem !important;
+    margin-top: 0.2rem !important;
   }
 
   .contact-form-view .contact-subtitle {
-    font-size: 0.8rem !important;
-    margin-bottom: 1rem !important;
+    font-size: 0.75rem !important;
+    margin-bottom: 0.8rem !important;
     max-width: 95% !important;
     flex-shrink: 0 !important;
     color: #cccccc !important;
     font-family: "DM Sans", sans-serif !important;
     text-align: center !important;
-    line-height: 1.4 !important;
+    line-height: 1.3 !important;
   }
 
   .contact-form {
@@ -3895,17 +3895,20 @@ html {
     display: flex !important;
     flex-direction: column !important;
     justify-content: space-between !important;
+    min-height: 0 !important;
   }
 
   .form-fields-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 0.8rem !important;
     flex: 1 !important;
     justify-content: flex-start !important;
     width: 100% !important;
     padding: 0 !important;
-    margin-bottom: 0.5rem !important;
+    margin-bottom: 0.3rem !important;
+    min-height: 0 !important;
+    overflow-y: auto !important;
   }
 
   .form-group {
@@ -3914,8 +3917,8 @@ html {
   }
 
   .form-group label {
-    font-size: 0.9rem !important;
-    margin-bottom: 0.6rem !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 0.4rem !important;
     display: block !important;
     color: #ffffff !important;
     font-family: "DM Sans", sans-serif !important;
@@ -3926,9 +3929,9 @@ html {
   .form-group textarea,
   .form-group select {
     font-size: 16px !important;
-    padding: 0.7rem !important;
-    border-radius: 8px !important;
-    min-height: 48px !important;
+    padding: 0.6rem !important;
+    border-radius: 6px !important;
+    min-height: 44px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -3947,9 +3950,9 @@ html {
   }
 
   .form-group textarea {
-    min-height: 80px !important;
+    min-height: 60px !important;
     resize: vertical !important;
-    line-height: 1.4 !important;
+    line-height: 1.3 !important;
   }
 
   /* Mobile phone input wrapper fixes */
@@ -3959,10 +3962,10 @@ html {
     width: 100% !important;
     background: rgba(255, 255, 255, 0.08) !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
-    border-radius: 8px !important;
+    border-radius: 6px !important;
     box-sizing: border-box !important;
     transition: all 0.3s ease !important;
-    min-height: 48px !important;
+    min-height: 44px !important;
   }
 
   .phone-input-wrapper:focus-within {
@@ -3972,11 +3975,11 @@ html {
   }
 
   .country-code-dropdown {
-    width: 135px !important;
-    min-width: 135px !important;
-    max-width: 135px !important;
-    font-size: 15px !important;
-    padding: 0.7rem 0.4rem !important;
+    width: 130px !important;
+    min-width: 130px !important;
+    max-width: 130px !important;
+    font-size: 14px !important;
+    padding: 0.6rem 0.3rem !important;
     border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
     background: transparent !important;
     color: #ffffff !important;
@@ -3996,7 +3999,7 @@ html {
     flex: 1 !important;
     background: transparent !important;
     border: none !important;
-    padding: 0.7rem 0.6rem !important;
+    padding: 0.6rem 0.5rem !important;
     color: #ffffff !important;
     outline: none !important;
     font-size: 16px !important;
@@ -4013,16 +4016,16 @@ html {
 
   .submit-btn,
   .back-btn {
-    padding: 0.8rem 1.2rem !important;
-    font-size: 0.95rem !important;
+    padding: 0.7rem 1rem !important;
+    font-size: 0.9rem !important;
     width: 100% !important;
-    border-radius: 25px !important;
-    min-height: 50px !important;
+    border-radius: 22px !important;
+    min-height: 46px !important;
     font-weight: 600 !important;
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    gap: 0.5rem !important;
+    gap: 0.4rem !important;
     transition: all 0.3s ease !important;
     cursor: pointer !important;
     border: none !important;
@@ -4056,11 +4059,11 @@ html {
   .form-buttons-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem !important;
+    gap: 0.8rem !important;
     width: 100% !important;
     flex-shrink: 0 !important;
-    margin-top: 1rem !important;
-    padding-bottom: 0.5rem !important;
+    margin-top: 0.5rem !important;
+    padding-bottom: 0.3rem !important;
   }
 }
 
