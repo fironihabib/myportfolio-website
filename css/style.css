@@ -2832,8 +2832,10 @@ html {
   height: 100%;
   object-fit: contain;
   transition: transform 0.3s ease;
-  display: block;
+  display: block !important;
   margin: 0 auto;
+  opacity: 1 !important;
+  visibility: visible !important;
 }
 
 .contact-character:hover {
@@ -3360,11 +3362,12 @@ html {
   }
 
   /* Contact character section */
-  .contact-character-section {
+  .contact-default-view .contact-character-section {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin-top: 1rem !important;
+    margin: 0.5rem 0 !important;
+    width: 100% !important;
   }
 
   .contact-default-view .contact-character-container {
@@ -3373,13 +3376,19 @@ html {
     display: flex !important;
     justify-content: center !important;
     align-items: center !important;
-    margin: 0.5rem 0 !important;
+    margin: 0 !important;
   }
 
-  .contact-character {
+  .contact-default-view .contact-character {
     width: 100% !important;
     height: 100% !important;
     object-fit: contain !important;
+    display: block !important;
+    transition: transform 0.3s ease !important;
+  }
+
+  .contact-default-view .contact-character:hover {
+    transform: scale(1.05) !important;
   }
 
   /* Additional tablet optimizations */

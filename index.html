@@ -819,6 +819,8 @@
                 src="images/contact.png"
                 alt="Contact Character"
                 class="contact-character"
+                loading="eager"
+                onerror="console.error('Contact image failed to load:', this.src); this.style.display='none';"
               />
             </div>
           </div>
