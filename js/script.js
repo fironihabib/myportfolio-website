@@ -992,16 +992,20 @@ document.addEventListener("DOMContentLoaded", function () {
   }, 500);
 });
 
+// Global variable to track if event listeners are already attached
+let dropdownListenersAttached = false;
+
 function initializeLanguageDropdowns() {
   // Get ALL language dropdowns (not just visible ones)
   const allDropdowns = document.querySelectorAll(".language-dropdown");
 
   console.log(`🌍 Found ${allDropdowns.length} language dropdowns`);
 
-  // Remove any existing event listeners first
-  allDropdowns.forEach((dropdown) => {
-    dropdown.removeEventListener("click", handleDropdownClick);
-  });
+  // Only attach listeners once to prevent duplicates
+  if (dropdownListenersAttached) {
+    console.log("🌍 Dropdown listeners already attached, skipping...");
+    return;
+  }
 
   // Add event listeners to each dropdown
   allDropdowns.forEach((dropdown, index) => {
@@ -1023,12 +1027,14 @@ function initializeLanguageDropdowns() {
 
         console.log(`🖱️ Dropdown ${index + 1} (${parentPage}) clicked`);
 
-        // Close all other dropdowns
-        allDropdowns.forEach((otherDropdown) => {
-          if (otherDropdown !== dropdown) {
-            otherDropdown.classList.remove("active");
-          }
-        });
+        // Close all other dropdowns first
+        document
+          .querySelectorAll(".language-dropdown")
+          .forEach((otherDropdown) => {
+            if (otherDropdown !== dropdown) {
+              otherDropdown.classList.remove("active");
+            }
+          });
 
         // Toggle current dropdown
         dropdown.classList.toggle("active");
@@ -1074,8 +1080,10 @@ function initializeLanguageDropdowns() {
           // Update all language dropdowns across all pages
           updateAllLanguageDropdowns(flagSrc, langCodes[lang]);
 
-          // Close dropdown
-          dropdown.classList.remove("active");
+          // Close all dropdowns
+          document.querySelectorAll(".language-dropdown").forEach((dd) => {
+            dd.classList.remove("active");
+          });
 
           // Restore body scroll on mobile
           if (window.innerWidth <= 480) {
@@ -1096,10 +1104,10 @@ function initializeLanguageDropdowns() {
     }
   });
 
-  // Close dropdowns when clicking outside
+  // Close dropdowns when clicking outside (only attach once)
   document.addEventListener("click", function (e) {
     if (!e.target.closest(".language-dropdown")) {
-      allDropdowns.forEach((dropdown) => {
+      document.querySelectorAll(".language-dropdown").forEach((dropdown) => {
         dropdown.classList.remove("active");
       });
 
@@ -1110,8 +1118,18 @@ function initializeLanguageDropdowns() {
     }
   });
 
+  // Mark listeners as attached
+  dropdownListenersAttached = true;
+
   // Load saved language preference
   loadSavedLanguage();
+}
+
+// Re-initialize dropdowns when page changes
+function reinitializeDropdowns() {
+  console.log("🔄 Reinitializing dropdowns for page change...");
+  dropdownListenersAttached = false;
+  initializeLanguageDropdowns();
 }
 
 // Helper function for dropdown click handling
@@ -1382,6 +1400,11 @@ document.addEventListener("DOMContentLoaded", function () {
         if (targetPage !== "contact") {
           document.body.style.overflow = "auto";
         }
+
+        // Re-initialize dropdowns for the new page
+        setTimeout(() => {
+          reinitializeDropdowns();
+        }, 200);
 
         // Restore saved language preference after page switch
         setTimeout(() => {

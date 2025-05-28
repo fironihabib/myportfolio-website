@@ -634,6 +634,7 @@ html {
 /* ===== LANGUAGE DROPDOWN ===== */
 .language-selector {
   position: relative;
+  z-index: 10001;
 }
 
 .language-dropdown {
