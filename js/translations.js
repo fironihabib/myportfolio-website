@@ -7,6 +7,11 @@ const translations = {
       about: "About me",
       work: "Work",
       contact: "Contact",
+      // Mobile short versions
+      homeMobile: "Home",
+      aboutMobile: "About",
+      workMobile: "Work",
+      contactMobile: "Contact",
     },
 
     // Loading
@@ -77,6 +82,11 @@ const translations = {
       about: "Haqqımda",
       work: "İşlərim",
       contact: "Əlaqə",
+      // Mobile short versions
+      homeMobile: "Ana",
+      aboutMobile: "Haqqımda",
+      workMobile: "İşlər",
+      contactMobile: "Əlaqə",
     },
 
     // Loading
@@ -148,6 +158,11 @@ const translations = {
       about: "Hakkımda",
       work: "Çalışmalarım",
       contact: "İletişim",
+      // Mobile short versions
+      homeMobile: "Ana",
+      aboutMobile: "Hakkımda",
+      workMobile: "Çalışma",
+      contactMobile: "İletişim",
     },
 
     // Loading
@@ -219,6 +234,11 @@ const translations = {
       about: "Обо мне",
       work: "Работы",
       contact: "Контакты",
+      // Mobile short versions
+      homeMobile: "Главная",
+      aboutMobile: "Обо мне",
+      workMobile: "Работы",
+      contactMobile: "Контакт",
     },
 
     // Loading
@@ -304,6 +324,11 @@ function setLanguage(lang) {
 // Make setLanguage globally accessible
 if (typeof window !== "undefined") {
   window.setLanguage = setLanguage;
+
+  // Add window resize listener to update navigation on screen size change
+  window.addEventListener("resize", function () {
+    updateNavigation();
+  });
 }
 
 function getCurrentLanguage() {
@@ -355,36 +380,51 @@ function updatePageContent() {
 
 function updateNavigation() {
   const navLinks = document.querySelectorAll(".nav-link");
+  const isMobile = window.innerWidth <= 480;
+
   navLinks.forEach((link) => {
     const text = link.textContent.trim();
     if (
       text === "Home" ||
       text === "Ana Səhifə" ||
       text === "Ana Sayfa" ||
-      text === "Главная"
+      text === "Главная" ||
+      text === "Ana" // Mobile versions
     ) {
-      link.textContent = translate("nav.home");
+      link.textContent = isMobile
+        ? translate("nav.homeMobile")
+        : translate("nav.home");
     } else if (
       text === "About me" ||
       text === "Haqqımda" ||
       text === "Hakkımda" ||
-      text === "Обо мне"
+      text === "Обо мне" ||
+      text === "About" // Mobile versions
     ) {
-      link.textContent = translate("nav.about");
+      link.textContent = isMobile
+        ? translate("nav.aboutMobile")
+        : translate("nav.about");
     } else if (
       text === "Work" ||
       text === "İşlərim" ||
       text === "Çalışmalarım" ||
-      text === "Работы"
+      text === "Работы" ||
+      text === "İşlər" ||
+      text === "Çalışma" // Mobile versions
     ) {
-      link.textContent = translate("nav.work");
+      link.textContent = isMobile
+        ? translate("nav.workMobile")
+        : translate("nav.work");
     } else if (
       text === "Contact" ||
       text === "Əlaqə" ||
       text === "İletişim" ||
-      text === "Контакты"
+      text === "Контакты" ||
+      text === "Контакт" // Mobile versions
     ) {
-      link.textContent = translate("nav.contact");
+      link.textContent = isMobile
+        ? translate("nav.contactMobile")
+        : translate("nav.contact");
     }
   });
 }
