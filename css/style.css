@@ -3901,13 +3901,14 @@ html {
   .form-fields-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.8rem !important;
-    flex: 1 !important;
+    gap: 0.7rem !important;
+    flex: 0 1 auto !important;
     justify-content: flex-start !important;
     width: 100% !important;
     padding: 0 !important;
-    margin-bottom: 0.3rem !important;
+    margin-bottom: 0.5rem !important;
     min-height: 0 !important;
+    max-height: calc(100vh - 280px) !important;
     overflow-y: auto !important;
   }
 
@@ -3929,9 +3930,9 @@ html {
   .form-group textarea,
   .form-group select {
     font-size: 16px !important;
-    padding: 0.6rem !important;
+    padding: 0.5rem !important;
     border-radius: 6px !important;
-    min-height: 44px !important;
+    min-height: 42px !important;
     width: 100% !important;
     box-sizing: border-box !important;
     border: 1px solid rgba(255, 255, 255, 0.3) !important;
@@ -3950,7 +3951,7 @@ html {
   }
 
   .form-group textarea {
-    min-height: 60px !important;
+    min-height: 50px !important;
     resize: vertical !important;
     line-height: 1.3 !important;
   }
@@ -3965,7 +3966,7 @@ html {
     border-radius: 6px !important;
     box-sizing: border-box !important;
     transition: all 0.3s ease !important;
-    min-height: 44px !important;
+    min-height: 42px !important;
   }
 
   .phone-input-wrapper:focus-within {
@@ -3975,11 +3976,11 @@ html {
   }
 
   .country-code-dropdown {
-    width: 130px !important;
-    min-width: 130px !important;
-    max-width: 130px !important;
+    width: 125px !important;
+    min-width: 125px !important;
+    max-width: 125px !important;
     font-size: 14px !important;
-    padding: 0.6rem 0.3rem !important;
+    padding: 0.5rem 0.3rem !important;
     border-right: 1px solid rgba(255, 255, 255, 0.3) !important;
     background: transparent !important;
     color: #ffffff !important;
@@ -3999,7 +4000,7 @@ html {
     flex: 1 !important;
     background: transparent !important;
     border: none !important;
-    padding: 0.6rem 0.5rem !important;
+    padding: 0.5rem 0.4rem !important;
     color: #ffffff !important;
     outline: none !important;
     font-size: 16px !important;
@@ -4059,11 +4060,15 @@ html {
   .form-buttons-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.8rem !important;
+    gap: 0.7rem !important;
     width: 100% !important;
     flex-shrink: 0 !important;
-    margin-top: 0.5rem !important;
-    padding-bottom: 0.3rem !important;
+    margin-top: 0.8rem !important;
+    padding-bottom: 1rem !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    background: #000000 !important;
+    padding-top: 0.5rem !important;
   }
 }
 
