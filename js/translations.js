@@ -154,12 +154,12 @@ const translations = {
   tr: {
     // Navigation
     nav: {
-      home: "Anasayfa",
+      home: "Ana Sayfa",
       about: "Hakkımda",
       work: "Projelerim",
       contact: "İletişim",
       // Mobile short versions
-      homeMobile: "Ana",
+      homeMobile: "Ana Sayfa",
       aboutMobile: "Hakkımda",
       workMobile: "Projelerim",
       contactMobile: "İletişim",
@@ -391,7 +391,7 @@ function updateNavigation() {
       text === "Anasayfa" ||
       text === "Əsas" ||
       text === "Главная" ||
-      text === "Ana" // Mobile versions
+      text === "Ana" // Old mobile version (for backward compatibility)
     ) {
       link.textContent = isMobile
         ? translate("nav.homeMobile")
