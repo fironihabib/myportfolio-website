@@ -2823,6 +2823,7 @@ html {
   align-items: center;
   width: 100%;
   margin: 0 auto;
+  flex-shrink: 0;
 }
 
 /* Base contact character container for all devices */
@@ -2830,7 +2831,7 @@ html {
   display: flex !important;
   align-items: center !important;
   justify-content: center !important;
-  margin: 20px auto !important;
+  margin: 0 auto !important;
   background: transparent !important;
   position: relative !important;
   z-index: 5 !important;
@@ -2883,10 +2884,12 @@ html {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  gap: 2rem;
+  gap: 1.5rem;
   height: 100%;
   width: 100%;
   text-align: center;
+  max-width: 600px;
+  margin: 0 auto;
 }
 
 /* ===== CONTACT FORM STYLES ===== */
@@ -3731,12 +3734,12 @@ html {
   .contact-form-view[style*="flex"] {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: flex-start !important;
+    justify-content: space-between !important;
     align-items: center !important;
     text-align: center !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 0.5rem 1rem 1rem 1rem !important;
+    padding: 1rem !important;
     height: calc(100vh - 80px) !important;
     overflow-y: auto !important;
     box-sizing: border-box !important;
@@ -3745,19 +3748,35 @@ html {
   .contact-form-view .contact-title {
     font-size: clamp(1.5rem, 6vw, 2rem) !important;
     margin-bottom: 0.5rem !important;
+    flex-shrink: 0 !important;
+    color: #ffffff !important;
+    font-family: "K2D", sans-serif !important;
+    font-weight: 700 !important;
   }
 
   .contact-form-view .contact-subtitle {
     font-size: 0.85rem !important;
     margin-bottom: 1rem !important;
     max-width: 100% !important;
+    flex-shrink: 0 !important;
+    color: #cccccc !important;
+    font-family: "DM Sans", sans-serif !important;
+  }
+
+  .contact-form {
+    width: 100% !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
 
   .form-fields-container {
     display: flex !important;
     flex-direction: column !important;
     gap: 1rem !important;
-    margin-bottom: 1.5rem !important;
+    flex: 1 !important;
+    justify-content: center !important;
     width: 100% !important;
   }
 
