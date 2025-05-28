@@ -3744,36 +3744,38 @@ html {
   .contact-form-view[style*="flex"] {
     display: flex !important;
     flex-direction: column !important;
-    justify-content: space-between !important;
+    justify-content: flex-start !important;
     align-items: center !important;
     text-align: center !important;
     max-width: 100% !important;
     margin: 0 auto !important;
-    padding: 1rem !important;
-    height: calc(100vh - 80px) !important;
+    padding: 1rem 1rem 2rem 1rem !important;
+    height: 100vh !important;
     overflow-y: auto !important;
     box-sizing: border-box !important;
+    background: #000000 !important;
   }
 
   .contact-form-view .contact-title {
-    font-size: clamp(1.2rem, 5vw, 1.8rem) !important;
-    margin-bottom: 0.3rem !important;
+    font-size: clamp(1.5rem, 6vw, 2rem) !important;
+    margin-bottom: 0.5rem !important;
     flex-shrink: 0 !important;
     color: #ffffff !important;
     font-family: "K2D", sans-serif !important;
     font-weight: 700 !important;
     text-align: center !important;
+    margin-top: 1rem !important;
   }
 
   .contact-form-view .contact-subtitle {
-    font-size: 0.75rem !important;
-    margin-bottom: 0.8rem !important;
-    max-width: 100% !important;
+    font-size: 0.8rem !important;
+    margin-bottom: 1.5rem !important;
+    max-width: 90% !important;
     flex-shrink: 0 !important;
     color: #cccccc !important;
     font-family: "DM Sans", sans-serif !important;
     text-align: center !important;
-    line-height: 1.3 !important;
+    line-height: 1.4 !important;
   }
 
   .contact-form {
@@ -3787,52 +3789,60 @@ html {
   .form-fields-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.8rem !important;
+    gap: 1rem !important;
     flex: 1 !important;
     justify-content: flex-start !important;
     width: 100% !important;
-    padding-top: 0.5rem !important;
+    padding: 0 !important;
   }
 
   .form-group {
     margin-bottom: 0 !important;
+    width: 100% !important;
   }
 
   .form-group label {
-    font-size: 0.8rem !important;
-    margin-bottom: 0.3rem !important;
+    font-size: 0.85rem !important;
+    margin-bottom: 0.4rem !important;
+    display: block !important;
+    color: #ffffff !important;
+    font-family: "DM Sans", sans-serif !important;
   }
 
   .form-group input,
   .form-group textarea,
   .form-group select {
     font-size: 16px !important;
-    padding: 0.6rem !important;
-    border-radius: 6px !important;
-    min-height: 44px !important;
+    padding: 0.7rem !important;
+    border-radius: 8px !important;
+    min-height: 48px !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .form-group textarea {
-    min-height: 80px !important;
+    min-height: 100px !important;
     resize: vertical !important;
   }
 
   .submit-btn,
   .back-btn {
-    padding: 0.7rem 1.5rem !important;
-    font-size: 0.9rem !important;
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.95rem !important;
     width: 100% !important;
-    border-radius: 20px !important;
-    min-height: 44px !important;
+    border-radius: 25px !important;
+    min-height: 50px !important;
+    font-weight: 600 !important;
   }
 
   .form-buttons-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.6rem !important;
+    gap: 1rem !important;
     width: 100% !important;
     flex-shrink: 0 !important;
-    padding-top: 0.5rem !important;
+    margin-top: 1.5rem !important;
+    padding-bottom: 1rem !important;
   }
 }
 
