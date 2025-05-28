@@ -3150,32 +3150,121 @@ html {
     align-items: center !important;
   }
 
+  /* Contact form tablet styling */
   .contact-form {
-    max-width: 100% !important;
-    padding: 1rem !important;
+    max-width: 90% !important;
+    width: 100% !important;
+    padding: 0.5rem !important;
+    margin: 0 auto !important;
+    box-sizing: border-box !important;
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: space-between !important;
   }
 
-  .form-group {
+  .form-fields-container {
+    flex: 1 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.8rem !important;
     margin-bottom: 1rem !important;
   }
 
+  .form-group {
+    margin-bottom: 0.8rem !important;
+    text-align: left !important;
+    width: 100% !important;
+  }
+
+  .form-group label {
+    display: block !important;
+    margin-bottom: 0.3rem !important;
+    font-size: 0.8rem !important;
+    color: #ffffff !important;
+    font-weight: 600 !important;
+  }
+
   .form-group input,
+  .form-group textarea,
+  .form-group select {
+    width: 100% !important;
+    font-size: 14px !important;
+    padding: 0.7rem !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    color: #ffffff !important;
+    box-sizing: border-box !important;
+  }
+
   .form-group textarea {
-    font-size: 13px !important;
-    padding: 0.6rem !important;
+    min-height: 80px !important;
+    resize: vertical !important;
+  }
+
+  /* Phone input wrapper for tablet */
+  .phone-input-wrapper {
+    display: flex !important;
+    align-items: center !important;
+    width: 100% !important;
+    background: rgba(255, 255, 255, 0.05) !important;
+    border: 1px solid rgba(255, 255, 255, 0.2) !important;
+    border-radius: 6px !important;
+    box-sizing: border-box !important;
+  }
+
+  .country-code-dropdown {
+    width: 90px !important;
+    font-size: 0.7rem !important;
+    padding: 0.7rem 0.3rem !important;
+    border-right: 1px solid rgba(255, 255, 255, 0.2) !important;
+    background: transparent !important;
+    color: #ffffff !important;
+    border: none !important;
+    outline: none !important;
+  }
+
+  .phone-input-wrapper input {
+    flex: 1 !important;
+    background: transparent !important;
+    border: none !important;
+    padding: 0.7rem !important;
+    color: #ffffff !important;
+    outline: none !important;
   }
 
   .submit-btn,
   .back-btn {
-    padding: 0.7rem 1.2rem !important;
-    font-size: 0.8rem !important;
+    padding: 0.8rem 1.5rem !important;
+    font-size: 0.9rem !important;
+    border-radius: 25px !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+  }
+
+  .submit-btn {
+    background: #00f050 !important;
+    color: #000000 !important;
+    border: none !important;
+    font-weight: 600 !important;
+  }
+
+  .back-btn {
+    background: transparent !important;
+    color: #ffffff !important;
+    border: 1px solid rgba(255, 255, 255, 0.3) !important;
+    font-weight: 500 !important;
   }
 
   .form-buttons-container {
     display: flex !important;
     flex-direction: column !important;
-    gap: 0.8rem !important;
-    margin-top: 1.5rem !important;
+    gap: 1rem !important;
+    margin-top: 1rem !important;
+    flex-shrink: 0 !important;
   }
 
   /* Contact views management */
@@ -3208,9 +3297,14 @@ html {
     display: flex !important;
     flex-direction: column !important;
     align-items: center !important;
-    justify-content: center !important;
+    justify-content: flex-start !important;
     height: auto !important;
     min-height: calc(100vh - 100px) !important;
+    padding: 1rem !important;
+    overflow-y: auto !important;
+    max-width: 100% !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
   }
 
   .contact-thank-you-view {
@@ -3271,10 +3365,18 @@ html {
   /* Form styling for tablet */
   .contact-form-view .contact-title {
     font-size: clamp(1.5rem, 3.5vw, 2rem) !important;
+    margin-bottom: 0.8rem !important;
+    text-align: center !important;
+    flex-shrink: 0 !important;
   }
 
   .contact-form-view .contact-subtitle {
     font-size: clamp(0.8rem, 2vw, 1rem) !important;
+    line-height: 1.4 !important;
+    margin-bottom: 1rem !important;
+    text-align: center !important;
+    max-width: 90% !important;
+    flex-shrink: 0 !important;
   }
 }
 
