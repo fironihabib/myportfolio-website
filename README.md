@@ -25,13 +25,13 @@ A modern, responsive portfolio website showcasing my work as a Full Stack Develo
 - Touch-friendly navigation and interactions
 - Optimized images and performance
 
-## 🚀 Live Demo
+## 🚀 Live 
 
-Visit the live website: [Your Netlify URL will be here]
+Visit the live website: fironihabib.bio
 
 ## 📧 Contact
 
-- **Email**: [Your Email]
+- **Email**: gabibzadeh03@gmail.com
 - **LinkedIn**: [Fironi Habibzade](https://www.linkedin.com/in/fironi-habibzade-575283263/)
 - **GitHub**: [fironihabib](https://github.com/fironihabib)
 - **Instagram**: [@codingwithfiro](https://www.instagram.com/codingwithfiro)
